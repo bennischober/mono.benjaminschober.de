@@ -17,6 +17,8 @@ Current tasks:
 
 ___
 
-| Current Version | Changes |
-| --------------- | ------- |
-| `1.0`           | Added current website files. |
+*Note: date uses european format*
+| Versions | State | Change Date | Changes | Additional notes |
+| -------- | ----- | ----------- | ------- | ---------------- |
+| `1.0`    | `Done` | 15-03-2021 | Added current website files. | *added on 15-03-2021, created 03-04-2020* |
+| `2.0`    | `In progress` | 15-03-2021 | Update MD Bootstrap Version | |
