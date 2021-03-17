@@ -19,6 +19,7 @@ This is the first version of my homepage, running for almost 1 year. Now it's ti
 | `low`    | create 'CMS'-like software |
 
 **Normal updates:**
+
 Desgin/Template changes:
 1. change HTML structure
 2. check for Google Console errors and fix them
@@ -33,6 +34,7 @@ Dark/light mode:
 2. use toggle to set theme color manually
 
 **Further updates (wishes):**
+
 Language settings:
 1. IP based language settings (via HTTP respond?)
 2. User Agent languate settings (get User Agent language settings?)
