@@ -7,13 +7,44 @@ It also uses the scripts of Bootstrap Material Design (includes popper.js, jquer
 
 This is the first version of my homepage, running for almost 1 year. Now it's time to re-design it!
 
-Current tasks:
-- [ ] Update Template
-  - [ ] Update whole design (CSS, HTML structure, ... )
-- [ ]  Update Content
-- [ ]  Update scripts
-- [ ]  Change folder structure
-- [ ]  Implement IP tracked language setup
+**Current tasks:**
+| Priority | Task |
+| -------- | ---- |
+| `high`   | update MD Bootstrap version |
+| `high`   | add/change content |
+| `medium` | update whole design and template |
+| `medium` | update/change animations |
+| `low`    | add dark/light mode |
+| `low`    | implement language settings |
+| `low`    | create 'CMS'-like software |
+
+**Normal updates:**
+Desgin/Template changes:
+1. change HTML structure
+2. check for Google Console errors and fix them
+3. update scripts
+
+Animation changes:
+1. don't use left/right fade in AOS
+2. look for updated aos version
+
+Dark/light mode:
+1. use time to change theme color automatically
+2. use toggle to set theme color manually
+
+**Further updates (wishes):**
+Language settings:
+1. IP based language settings (via HTTP respond?)
+2. User Agent languate settings (get User Agent language settings?)
+
+CMS-like software:
+* Online CMS:
+  * create Angular app to manage page content
+  * when hitting 'save', create HTML, CSS, JS files?
+* Offline 'CMS':
+  * create whole HTML, CSS, JS and use placeholders
+  * fill placeholders in own file format
+  * use Python (or something else) to change placeholders with real content
 
 ___
 
