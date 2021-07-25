@@ -6,7 +6,12 @@
 *.mp4
 *.jpg
 *.png
-*.pdf
+
+# ignore node_modules folders
+node_modules/
+
+# ignore .idea folder
+.idea/
 
 # ignore softwaretechnik-2 folder
 html/softwaretechnik-2/
