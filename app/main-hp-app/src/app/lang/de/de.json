@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "about": "Über mich",
+    "resume": "Lebenslauf",
+    "projects":  "Projekte"
+  },
+  "introduction": {
+    "intro":  "Hi!",
+    "name":  "Ich bin Benjamin",
+    "sub": "ein Game Engineering Student aus Deutschland."
+  },
+  "about": {},
+  "resume": {},
+  "skills": {},
+  "projects": {},
+  "footer": {}
+}
