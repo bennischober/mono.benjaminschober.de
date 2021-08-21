@@ -4,7 +4,10 @@ import tw from "twin.macro";
 import {slide as Menu} from "react-burger-menu";
 import {useMediaQuery} from "react-responsive";
 import {SCREENS} from "../responsive";
-import menuStyles from "./menuStyles";
+import {menuStyles} from "./menuStyles";
+import {useSelector, useDispatch} from "react-redux";
+import {TOGGLE_DARKTHEME} from "../../store/actions";
+import {navbarTextColor, navbarTextHover} from "../../../themes";
 
 const ListContainer = styled.ul`
   ${tw`
@@ -14,20 +17,19 @@ const ListContainer = styled.ul`
 `;
 
 const NavItem = styled.li<{ menu?: any }>`
+  color: ${navbarTextColor};
+  &:hover {
+    color: ${navbarTextHover};
+  };
   ${tw`
     text-xs
     md:text-base
-    text-black
     font-medium
     mr-1
     md:mr-5
     cursor-pointer
-    transition
-    duration-300
-    ease-in-out
-    hover:text-gray-700
   `};
-  
+
   ${({menu}) => menu && css`
     ${tw`
         text-white
@@ -39,6 +41,9 @@ const NavItem = styled.li<{ menu?: any }>`
 `;
 
 export function NavItems() {
+    const darkThemeEnabled = useSelector((state: any) => state.preferences.darkThemeEnabled);
+    const dispatch = useDispatch();
+
     const isMobile = useMediaQuery({maxWidth: SCREENS.sm});
 
     if (isMobile)
@@ -73,6 +78,16 @@ export function NavItems() {
         </NavItem>
         <NavItem>
             <a href="#">Contact us</a>
+        </NavItem>
+        <NavItem>
+            <p>
+                <input
+                    type="checkbox"
+                    checked={darkThemeEnabled}
+                    onChange={() => dispatch({type: TOGGLE_DARKTHEME})}
+                />
+                <span>Use Dark Theme</span>
+            </p>
         </NavItem>
     </ListContainer>
 }
