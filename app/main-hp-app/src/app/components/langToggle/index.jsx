@@ -2,10 +2,14 @@ import React from 'react';
 import {Button, Menu, Tooltip} from "@material-ui/core";
 import TranslateIcon from "@material-ui/icons/Translate";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import MenuItem from '@material-ui/core/MenuItem';
+import {MenuItems} from "./menuItems";
+import {getAllLanguageObjects} from "../../lang/languageRouter";
 
 export function LanguageToggle(props) {
     const text = props.text;
+    const langChange = props.onLangChange;
+    const menuData = getAllLanguageObjects();
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -17,7 +21,7 @@ export function LanguageToggle(props) {
 
     return (
         <div>
-            <Tooltip title="Change Language">
+            <Tooltip title={text.tooltip}>
                 <Button
                     id="lang-button"
                     aria-controls="lang-menu"
@@ -25,8 +29,9 @@ export function LanguageToggle(props) {
                     aria-expanded={open ? 'true' : undefined}
                     onClick={handleClick}
                     startIcon={<TranslateIcon/>}
-                    endIcon={<KeyboardArrowDownIcon/>}>
-                    DEUTSCH
+                    endIcon={<KeyboardArrowDownIcon/>}
+                >
+                    {text.text}
                 </Button>
             </Tooltip>
             <Menu
@@ -38,9 +43,7 @@ export function LanguageToggle(props) {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItems menuData={menuData} onLangChange={langChange} onMenuClose={handleClose}/>
             </Menu>
         </div>
     );

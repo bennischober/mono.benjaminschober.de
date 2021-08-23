@@ -4,7 +4,9 @@ import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import {IconButton, Tooltip} from "@material-ui/core";
 
-export function ThemeToggle() {
+export function ThemeToggle(props) {
+    const text = props.text;
+
     const [toggle, setToggle] = useState('light');
     let theme = localStorage.getItem('theme');
 
@@ -27,7 +29,7 @@ export function ThemeToggle() {
     }, [theme])
 
     return (
-        <Tooltip title="Toggle light/dark theme">
+        <Tooltip title={text.tooltip}>
             <IconButton
                 id="theme-button"
                 onClick={handleOnClick}>

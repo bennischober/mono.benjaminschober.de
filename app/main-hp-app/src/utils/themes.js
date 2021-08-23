@@ -27,9 +27,7 @@ function keepTheme() {
 }
 
 function overwriteMaterialDesign(isDark) {
-    if (isDark === 'dark') {
-        console.log("changed theme!");
-
+    if (isDark === 'dark1') { // just for debug, change to dark later!
         const theme = createTheme({
             components: {
                 MuiButton: {

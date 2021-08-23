@@ -55,6 +55,10 @@ export function changeLanguage(lang) {
     CURRENT_LANG = lang;
 }
 
+export function getAllLanguageObjects() {
+    return allLang;
+}
+
 export function getAllLangaugesDisplayName() {
     let names = [];
     allLang.forEach(element => names.fill(element.display));

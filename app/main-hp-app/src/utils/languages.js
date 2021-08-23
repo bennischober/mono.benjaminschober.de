@@ -1,20 +1,14 @@
 import {changeLanguage, getCurrentLanguageText} from "../app/lang/languageRouter";
 
-function setLanguage(langName) {
+export function setLanguage(langName) {
     localStorage.setItem('language', langName);
     changeLanguage(langName);
 }
 
-function getLanguage() {
+export function getLanguage() {
     return getCurrentLanguageText();
 }
 
-function keepLanguage() {
-    if (localStorage.getItem('theme')) setLanguage(localStorage.getItem('theme'));
-}
-
-module.exports = {
-    keepLanguage,
-    setLanguage,
-    getLanguage
+export function keepLanguage() {
+    if (localStorage.getItem('language')) setLanguage(localStorage.getItem('language'));
 }

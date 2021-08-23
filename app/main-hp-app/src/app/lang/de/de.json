@@ -2,7 +2,18 @@
   "nav": {
     "about": "Über mich",
     "resume": "Lebenslauf",
-    "projects":  "Projekte"
+    "projects":  "Projekte",
+    "comps": {
+      "btn": {
+        "langToggle": {
+          "tooltip": "Sprache ändern",
+          "text": "DEUTSCH"
+        },
+        "themeToggle": {
+          "tooltip": "Dunkles/helles Design umschalten"
+        }
+      }
+    }
   },
   "introduction": {
     "intro":  "Hi!",
@@ -13,16 +24,5 @@
   "resume": {},
   "skills": {},
   "projects": {},
-  "footer": {},
-  "comps": {
-    "btn": {
-      "lang-toggle": {
-        "tooltip": "Sprache ändern",
-        "text": "DEUTSCH"
-      },
-      "theme-toggle": {
-        "tooltip": "Dunkles/helles Design umschalten"
-      }
-    }
-  }
+  "footer": {}
 }

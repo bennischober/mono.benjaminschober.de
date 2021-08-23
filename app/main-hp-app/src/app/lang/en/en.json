@@ -2,7 +2,18 @@
   "nav": {
     "about": "About",
     "resume": "Resume",
-    "projects":  "Projects"
+    "projects":  "Projects",
+    "comps": {
+      "btn": {
+        "langToggle": {
+          "tooltip": "Change Language",
+          "text": "ENGLISH"
+        },
+        "themeToggle": {
+          "tooltip": "Toggle light/dark theme"
+        }
+      }
+    }
   },
   "introduction": {
     "intro":  "Hi!",
@@ -13,16 +24,5 @@
   "resume": {},
   "skills": {},
   "projects": {},
-  "footer": {},
-  "comps": {
-    "btn": {
-      "lang-toggle": {
-        "tooltip": "Change Language",
-        "text": "ENGLISH"
-      },
-      "theme-toggle": {
-        "tooltip": "Toggle light/dark theme"
-      }
-    }
-  }
+  "footer": {}
 }

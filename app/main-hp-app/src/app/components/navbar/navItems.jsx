@@ -9,17 +9,18 @@ import Grid from '@material-ui/core/Grid';
 
 export function NavItems(props) {
     const data = props.text;
-    console.log(data);
+    const onLangChange = props.onLangChange;
+    const onThemeChange = props.onThemeChange;
 
     return (
         <Grid container>
-            <Grid item xs={12} sm={3}><a href="#about" className="main-links">{data.nav.about}</a></Grid>
-            <Grid item xs={12} sm={3}><a href="#resume" className="main-links">{data.nav.resume}</a></Grid>
-            <Grid item xs={12} sm={3}><a href="#projects" className="main-links">{data.nav.projects}</a></Grid>
+            <Grid item xs={12} sm={3}><a href="#about" className="main-links">{data.about}</a></Grid>
+            <Grid item xs={12} sm={3}><a href="#resume" className="main-links">{data.resume}</a></Grid>
+            <Grid item xs={12} sm={3}><a href="#projects" className="main-links">{data.projects}</a></Grid>
             <Grid item xs={12} sm={3}>
                 <Grid container>
-                    <Grid item xs={12} sm={6}><ThemeToggle/></Grid>
-                    <Grid item xs={12} sm={6}><LanguageToggle/></Grid>
+                    <Grid item xs={12} sm={6}><ThemeToggle text={data.comps.btn.themeToggle} onThemeChange={onThemeChange}/></Grid>
+                    <Grid item xs={12} sm={6}><LanguageToggle text={data.comps.btn.langToggle} onLangChange={onLangChange}/></Grid>
                 </Grid>
             </Grid>
         </Grid>

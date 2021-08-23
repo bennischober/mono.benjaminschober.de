@@ -7,7 +7,7 @@ import {ThemeProvider} from "@material-ui/core";
 
 // might change toggle theme functionality => calculated here and passed as argument (function) to child (Navbar)
 
-class App extends React.Component{
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -18,6 +18,8 @@ class App extends React.Component{
     componentDidMount = () => {
         keepTheme();
         keepLanguage();
+
+        if (localStorage.getItem('language')) this.handleLanguageChange(localStorage.getItem('language'));
     }
 
     handleLanguageChange(lang) {
@@ -37,7 +39,8 @@ class App extends React.Component{
         return (
             <ThemeProvider theme={curTheme}>
                 <div className="App">
-                    <Navbar text={curLang} onLangChange={this.handleLanguageChange} onThemeChange={this.handleThemeChange}/>
+                    <Navbar text={curLang.nav} onLangChange={this.handleLanguageChange}
+                            onThemeChange={this.handleThemeChange}/>
                 </div>
             </ThemeProvider>
         );
