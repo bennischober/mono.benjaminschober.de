@@ -5,7 +5,8 @@ import {makeStyles} from "@material-ui/styles";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        margin: "1rem 0 1rem 0"
+        margin: "1rem 0 1rem 0",
+        textAlign: "center"
     },
 }));
 

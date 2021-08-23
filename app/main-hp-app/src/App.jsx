@@ -4,6 +4,8 @@ import {setTheme, getTheme} from "./utils/themes";
 import {setLanguage, getLanguage} from "./utils/languages";
 import {Navbar} from "./app/components/navbar";
 import {ThemeProvider} from "@material-ui/core";
+import {TopContent} from "./app/components/topContent";
+import Container from '@material-ui/core/Container';
 
 // might change toggle theme functionality => calculated here and passed as argument (function) to child (Navbar)
 
@@ -37,10 +39,17 @@ class App extends React.Component {
 
         return (
             <ThemeProvider theme={curTheme}>
-                <div className="App">
+                <Container width="unset" maxWidth="100vw" className="App">
                     <Navbar text={curLang.nav} onLangChange={this.handleLanguageChange}
                             onThemeChange={this.handleThemeChange} themeState={this.state.theme}/>
-                </div>
+                    <main>
+                        <TopContent text={curLang.introduction} />
+                    </main>
+                    <footer>
+                        <section>
+                        </section>
+                    </footer>
+                </Container>
             </ThemeProvider>
         );
     }
