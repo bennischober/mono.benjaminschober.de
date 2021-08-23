@@ -1,39 +1,23 @@
-import React, {useEffect, useState} from "react";
-import {setTheme} from "../../../utils/themes";
+import React from "react";
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import {IconButton, Tooltip} from "@material-ui/core";
 
 export function ThemeToggle(props) {
     const text = props.text;
+    const changeTheme = props.onThemeChange;
+    const themeState = props.themeState;
 
-    const [toggle, setToggle] = useState('light');
-    let theme = localStorage.getItem('theme');
-
-    const handleOnClick = () => {
-        if (toggle === "light") {
-            setTheme('dark');
-            setToggle('dark')
-        } else {
-            setTheme('light');
-            setToggle('light');
-        }
+    const handleOnClick = (nextState) => {
+        changeTheme(nextState);
     };
-
-    useEffect(() => {
-        if (localStorage.getItem('theme') === 'dark') {
-            setToggle('dark')
-        } else if (localStorage.getItem('theme') === 'light') {
-            setToggle('light')
-        }
-    }, [theme])
 
     return (
         <Tooltip title={text.tooltip}>
             <IconButton
                 id="theme-button"
-                onClick={handleOnClick}>
-                {toggle === "dark" ? <BrightnessHighIcon/> : <Brightness4Icon/>}
+                onClick={() => themeState === "dark" ? handleOnClick("light") : handleOnClick("dark")}>
+                {themeState === "dark" ? <BrightnessHighIcon color="primary"/> : <Brightness4Icon color="primary"/>}
             </IconButton>
         </Tooltip>
     );

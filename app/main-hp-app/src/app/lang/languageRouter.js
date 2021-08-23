@@ -30,21 +30,19 @@ const en_obj = {
 
 const allLang = [de_obj, en_obj];
 
-// ToDo: On app start, get lang data on start and store in local object => change on lang swap
-
 /**
  * Returns an object with all language specific data.
  * @param lang: string of language code
  * */
 export function getText(lang) {
-    let el;
+    let el = undefined;
     for(let element of allLang) {
         if(element.key === lang) {
             el = element;
             break;
         }
     }
-    return el.json;
+    return el === undefined ? en_obj.json : el.json;
 }
 
 export function getCurrentLanguageText() {

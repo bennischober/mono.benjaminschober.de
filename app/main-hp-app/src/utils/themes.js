@@ -1,50 +1,48 @@
 const {createTheme} = require("@material-ui/core");
 
 let GLOBAL_STYLE = createTheme({
-    components: {
-        MuiButton: {
-            styleOverrides: {
-                root: {
-                    color: '#000000',
-                }
-            }
-        }
+    palette: {
+        type: "dark",
+        mode: "dark"
     }
 });
 
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName);
     document.documentElement.dataset.theme = themeName;
-    overwriteMaterialDesign(themeName);
+    changeTheme(themeName);
+}
+
+function changeTheme(themeName) {
+    if (themeName === "dark") {
+        GLOBAL_STYLE = createTheme({
+            palette: {
+                type: themeName,
+                mode: themeName,
+                primary: {
+                    main: "#ffffff",
+                },
+            },
+        });
+        return;
+    }
+
+    GLOBAL_STYLE = createTheme({
+        palette: {
+            type: themeName,
+            mode: themeName,
+            primary: {
+                main: "#000000",
+            }
+        },
+    });
 }
 
 function getTheme() {
     return GLOBAL_STYLE;
 }
 
-function keepTheme() {
-    if (localStorage.getItem('theme')) setTheme(localStorage.getItem('theme'));
-}
-
-function overwriteMaterialDesign(isDark) {
-    if (isDark === 'dark1') { // just for debug, change to dark later!
-        const theme = createTheme({
-            components: {
-                MuiButton: {
-                    styleOverrides: {
-                        root: {
-                            main: '#ffffff',
-                        }
-                    }
-                }
-            }
-        });
-        GLOBAL_STYLE = theme;
-    }
-}
-
 module.exports = {
     setTheme,
-    keepTheme,
     getTheme
 }

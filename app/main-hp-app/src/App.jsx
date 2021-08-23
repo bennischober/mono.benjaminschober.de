@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import {keepTheme, setTheme, getTheme} from "./utils/themes";
-import {keepLanguage, setLanguage, getLanguage} from "./utils/languages";
+import {setTheme, getTheme} from "./utils/themes";
+import {setLanguage, getLanguage} from "./utils/languages";
 import {Navbar} from "./app/components/navbar";
 import {ThemeProvider} from "@material-ui/core";
 
@@ -15,10 +15,9 @@ class App extends React.Component {
         this.state = {theme: 'light', lang: 'de'};
     }
 
+    // set initial states by getting
     componentDidMount = () => {
-        keepTheme();
-        keepLanguage();
-
+        if(localStorage.getItem('theme')) this.handleThemeChange(localStorage.getItem('theme'));
         if (localStorage.getItem('language')) this.handleLanguageChange(localStorage.getItem('language'));
     }
 
@@ -40,7 +39,7 @@ class App extends React.Component {
             <ThemeProvider theme={curTheme}>
                 <div className="App">
                     <Navbar text={curLang.nav} onLangChange={this.handleLanguageChange}
-                            onThemeChange={this.handleThemeChange}/>
+                            onThemeChange={this.handleThemeChange} themeState={this.state.theme}/>
                 </div>
             </ThemeProvider>
         );

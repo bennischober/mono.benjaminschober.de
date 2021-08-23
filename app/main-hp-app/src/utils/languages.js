@@ -8,7 +8,3 @@ export function setLanguage(langName) {
 export function getLanguage() {
     return getCurrentLanguageText();
 }
-
-export function keepLanguage() {
-    if (localStorage.getItem('language')) setLanguage(localStorage.getItem('language'));
-}
