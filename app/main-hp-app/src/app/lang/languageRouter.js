@@ -12,20 +12,25 @@
 //       ---de.json
 
 import de from "./de/de.json";
+import en from "./en/en.json";
 
-const CURRENT_LANG = "de";
+var CURRENT_LANG = "de";
 
 const de_obj = {
     key: "de",
+    display: "Deutsch",
     json: de,
 };
 
 const en_obj = {
     key: "en",
-    json: "",
+    display: "English",
+    json: en,
 };
 
 const allLang = [de_obj, en_obj];
+
+// ToDo: On app start, get lang data on start and store in local object => change on lang swap
 
 /**
  * Returns an object with all language specific data.
@@ -44,4 +49,14 @@ export function getText(lang) {
 
 export function getCurrentLanguageText() {
     return getText(CURRENT_LANG);
+}
+
+export function changeLanguage(lang) {
+    CURRENT_LANG = lang;
+}
+
+export function getAllLangaugesDisplayName() {
+    let names = [];
+    allLang.forEach(element => names.fill(element.display));
+    return names;
 }

@@ -13,5 +13,16 @@
   "resume": {},
   "skills": {},
   "projects": {},
-  "footer": {}
+  "footer": {},
+  "comps": {
+    "btn": {
+      "lang-toggle": {
+        "tooltip": "Sprache ändern",
+        "text": "DEUTSCH"
+      },
+      "theme-toggle": {
+        "tooltip": "Dunkles/helles Design umschalten"
+      }
+    }
+  }
 }

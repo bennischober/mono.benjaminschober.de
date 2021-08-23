@@ -1,19 +1,52 @@
+const {createTheme} = require("@material-ui/core");
+
+let GLOBAL_STYLE = createTheme({
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    color: '#000000',
+                }
+            }
+        }
+    }
+});
+
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName);
     document.documentElement.dataset.theme = themeName;
+    overwriteMaterialDesign(themeName);
+}
+
+function getTheme() {
+    return GLOBAL_STYLE;
 }
 
 function keepTheme() {
-    if (localStorage.getItem('theme')) {
-        if (localStorage.getItem('theme') === 'dark') {
-            setTheme('dark');
-        } else if (localStorage.getItem('theme') === 'light') {
-            setTheme('light');
-        }
+    if (localStorage.getItem('theme')) setTheme(localStorage.getItem('theme'));
+}
+
+function overwriteMaterialDesign(isDark) {
+    if (isDark === 'dark') {
+        console.log("changed theme!");
+
+        const theme = createTheme({
+            components: {
+                MuiButton: {
+                    styleOverrides: {
+                        root: {
+                            main: '#ffffff',
+                        }
+                    }
+                }
+            }
+        });
+        GLOBAL_STYLE = theme;
     }
 }
 
 module.exports = {
     setTheme,
-    keepTheme
+    keepTheme,
+    getTheme
 }

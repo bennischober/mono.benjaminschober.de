@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "about": "About",
+    "resume": "Resume",
+    "projects":  "Projects"
+  },
+  "introduction": {
+    "intro":  "Hi!",
+    "name":  "I'm Benjamin",
+    "sub": "a game engineering student from Germany."
+  },
+  "about": {},
+  "resume": {},
+  "skills": {},
+  "projects": {},
+  "footer": {},
+  "comps": {
+    "btn": {
+      "lang-toggle": {
+        "tooltip": "Change Language",
+        "text": "ENGLISH"
+      },
+      "theme-toggle": {
+        "tooltip": "Toggle light/dark theme"
+      }
+    }
+  }
+}

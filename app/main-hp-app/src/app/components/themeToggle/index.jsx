@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from "react";
 import {setTheme} from "../../../utils/themes";
+import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import {IconButton, Tooltip} from "@material-ui/core";
 
 export function ThemeToggle() {
     const [toggle, setToggle] = useState('light');
     let theme = localStorage.getItem('theme');
 
     const handleOnClick = () => {
-        if(toggle === "light") {
+        if (toggle === "light") {
             setTheme('dark');
             setToggle('dark')
         } else {
@@ -23,10 +26,13 @@ export function ThemeToggle() {
         }
     }, [theme])
 
-    return(
-        <label>
-            <input type="checkbox" onChange={handleOnClick} checked={toggle === "dark"}/>
-            Change Theme
-        </label>
+    return (
+        <Tooltip title="Toggle light/dark theme">
+            <IconButton
+                id="theme-button"
+                onClick={handleOnClick}>
+                {toggle === "dark" ? <BrightnessHighIcon/> : <Brightness4Icon/>}
+            </IconButton>
+        </Tooltip>
     );
 }
