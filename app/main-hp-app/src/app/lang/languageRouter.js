@@ -42,15 +42,19 @@ export function getText(lang) {
             break;
         }
     }
-    return el === undefined ? en_obj.json : el.json;
+    return el === undefined ? en_obj : el;
 }
 
 export function getCurrentLanguageText() {
-    return getText(CURRENT_LANG);
+    return getText(CURRENT_LANG).json;
 }
 
 export function changeLanguage(lang) {
     CURRENT_LANG = lang;
+}
+
+export function getCurrentLanguageKey() {
+    return getText(CURRENT_LANG).key;
 }
 
 export function getAllLanguageObjects() {

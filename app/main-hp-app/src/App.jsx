@@ -3,7 +3,7 @@ import './App.css';
 import {setTheme, getTheme} from "./utils/themes";
 import {setLanguage, getLanguage} from "./utils/languages";
 import {Navbar} from "./app/components/navbar";
-import {ThemeProvider} from "@material-ui/core";
+import {responsiveFontSizes, ThemeProvider} from "@material-ui/core";
 import {TopContent} from "./app/components/topContent";
 import Container from '@material-ui/core/Container';
 
@@ -36,9 +36,12 @@ class App extends React.Component {
     render() {
         const curLang = getLanguage();
         const curTheme = getTheme();
+        const variants = ["navbar"];
+        const responsiveFontTheme = responsiveFontSizes(curTheme, {variants: variants});
+        const responsive = responsiveFontSizes(responsiveFontTheme);
 
         return (
-            <ThemeProvider theme={curTheme}>
+            <ThemeProvider theme={responsive}>
                 <Container width="unset" maxWidth="100vw" className="App">
                     <Navbar text={curLang.nav} onLangChange={this.handleLanguageChange}
                             onThemeChange={this.handleThemeChange} themeState={this.state.theme}/>
@@ -47,6 +50,10 @@ class App extends React.Component {
                     </main>
                     <footer>
                         <section>
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <div id="resume">HELLO</div>
+                            <div id="about">HELLO</div>
+                            <div id="projects">HELLO</div>
                         </section>
                     </footer>
                 </Container>

@@ -5,6 +5,7 @@ export function MenuItems(props) {
     const menuData = props.menuData;
     const menuClose = props.onMenuClose;
     const langChange = props.onLangChange;
+    const activeItem = props.activeItem;
 
     function handleOnClick(data) {
         langChange(data);
@@ -12,6 +13,6 @@ export function MenuItems(props) {
     }
 
     return menuData.map((item) =>
-        <MenuItem id={item.key} key={item.key} onClick={() => handleOnClick(item.key)}>{item.display}</MenuItem>
+        <MenuItem selected={activeItem === item.key} disabled={activeItem === item.key} id={item.key} key={item.key} onClick={() => handleOnClick(item.key)}>{item.display}</MenuItem>
     );
 }

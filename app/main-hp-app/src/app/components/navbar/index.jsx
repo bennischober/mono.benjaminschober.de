@@ -2,6 +2,7 @@ import React from "react";
 import {NavItems} from "./navItems";
 import {makeStyles} from "@material-ui/styles";
 
+// might change to emotion styles
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -18,6 +19,7 @@ export function Navbar(props) {
 
     const classes = useStyles();
 
+    // might implement burger menu for mobile here
     return(
         <nav className={classes.root}>
             <NavItems text={txt} onLangChange={onLangChange} onThemeChange={onThemeChange} themeState={themeState}/>

@@ -28,9 +28,9 @@ export class AnchorLink extends React.Component {
     }
 
     render() {
-        const {offset, text, ...rest} = this.props;
+        const {offset, children, ...rest} = this.props;
         return(
-            <a {...rest} onClick={this.smoothScroll}>{text}</a>
+            <a {...rest} onClick={this.smoothScroll}>{children}</a>
         );
     }
 }

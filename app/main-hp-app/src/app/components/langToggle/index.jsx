@@ -3,12 +3,13 @@ import {Button, Menu, Tooltip} from "@material-ui/core";
 import TranslateIcon from "@material-ui/icons/Translate";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import {MenuItems} from "./menuItems";
-import {getAllLanguageObjects} from "../../lang/languageRouter";
+import {getAllLanguageObjects, getCurrentLanguageKey} from "../../lang/languageRouter";
 
 export function LanguageToggle(props) {
     const text = props.text;
     const langChange = props.onLangChange;
     const menuData = getAllLanguageObjects();
+    const curLang = getCurrentLanguageKey();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -43,7 +44,7 @@ export function LanguageToggle(props) {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItems menuData={menuData} onLangChange={langChange} onMenuClose={handleClose}/>
+                <MenuItems menuData={menuData} onLangChange={langChange} onMenuClose={handleClose} activeItem={curLang}/>
             </Menu>
         </div>
     );
