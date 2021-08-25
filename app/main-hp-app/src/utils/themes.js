@@ -10,6 +10,15 @@ let GLOBAL_STYLE = createTheme({
         type: "dark",
         mode: "dark"
     },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    transition: "none !important"
+                }
+            }
+        }
+    },
     typography: {
         navbar: {
             fontSize: "1.5rem",
@@ -23,10 +32,19 @@ let GLOBAL_STYLE = createTheme({
                 textDecoration: "none",
                 textShadow: "0 2px 5px rgb(127 67 calc(255 / 0.94))",
             }
+        },
+        typedSubheading: {
+            fontSize: "2rem",
+            color: "#000000",
+            fontWeight: "700",
+            textDecoration: "unset",
+            lineHeight: "1.5",
+            letterSpacing: "0em",
+            textShadow: "0 2px 5px rgb(206 206 calc(206 / 0.5))",
         }
     }
 });
-OverrideTheme();
+OverrideThemeFont();
 
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName);
@@ -35,15 +53,19 @@ function setTheme(themeName) {
 }
 
 function changeTheme(themeName) {
+    // main theme stuff
     GLOBAL_STYLE.palette.type = themeName;
     GLOBAL_STYLE.palette.mode = themeName;
     GLOBAL_STYLE.palette.primary.main = themeName === "dark" ? "#ffffff" : "#000000";
-    GLOBAL_STYLE.typography.navbar.color = themeName === "dark" ? "#ffffff" : "#000000";
 
-    OverrideTheme();
+    // variants:
+    GLOBAL_STYLE.typography.navbar.color = themeName === "dark" ? "#ffffff" : "#000000";
+    GLOBAL_STYLE.typography.navbar.textShadow = themeName === "dark" ? "0 2px 5px rgb(127 67 calc(255 / 0.94))" : "0 2px 5px rgb(63 63 63/50%)";
+    GLOBAL_STYLE.typography.typedSubheading.color = themeName === "dark" ? "#ffffff" : "#000000";
+    GLOBAL_STYLE.typography.typedSubheading.textShadow = themeName === "dark" ? "0 2px 5px rgb(206 206 calc(206 / 0.5))" : "0 2px 5px rgb(63 63 63/50%)";
 }
 
-function OverrideTheme() {
+function OverrideThemeFont() {
     GLOBAL_STYLE.typography.fontFamily = `-apple-system, '${masterFont}', '${secondMasterFont}', monospace, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Helvetica Neue', 'Arial', sans-serif`;
 
     GLOBAL_STYLE.typography.h1.fontFamily = fontFamilyOverwrites;
@@ -59,9 +81,6 @@ function OverrideTheme() {
     GLOBAL_STYLE.typography.body2.fontFamily = fontFamilyOverwrites;
     GLOBAL_STYLE.typography.button.fontFamily = fontFamilyOverwrites;
     GLOBAL_STYLE.typography.caption.fontFamily = fontFamilyOverwrites;
-
-    console.log("log in OverrideTheme()");
-    console.log(GLOBAL_STYLE);
 }
 
 function getTheme() {

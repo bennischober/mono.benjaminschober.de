@@ -7,7 +7,7 @@
 }
 
 [data-theme="dark"] {
-  --color-bg: #181818;
+  --color-bg: #212121;
   --main-text-color: #ffffff;
 
   --material-icons: rgba(255, 255, 255, 1);

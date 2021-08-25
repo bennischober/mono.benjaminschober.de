@@ -23,6 +23,50 @@
   "about": {},
   "resume": {},
   "skills": {},
-  "projects": {},
-  "footer": {}
+  "projects": {
+    "semester1": {
+      "text": {
+        "headline": "Blender Project",
+        "subHeadline": "Group project during semester 1",
+        "description": "This was a group project of 2 people during semester 1, to get familiar with Blender."
+      }
+    },
+    "semester3": {
+
+    },
+    "semester4": {
+
+    },
+    "semester6": {
+
+    },
+    "internship": {
+      "msq": {
+
+      }
+    }
+  },
+  "footer": {
+    "text": {
+      "contact": "Contact",
+      "privacyPolicy": "privacy policy",
+      "copyrightSymbol": "©",
+      "copyrightText": "Copyright: Benjamin Schober",
+      "aria": {
+        "email": "send me an email",
+        "github": "open my github profile",
+        "linkedin": "open my linkedin profile"
+      },
+      "tooltip": {
+        "email": "send me an email",
+        "github": "my github profile",
+        "linkedin": "my linkedin profile"
+      }
+    },
+    "links": {
+      "email": "mailto:bennischober001@gmail.com",
+      "github": "https://github.com/bennischober",
+      "linkedin": "https://www.linkedin.com/in/benjamin-schober/"
+    }
+  }
 }

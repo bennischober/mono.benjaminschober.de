@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Menu, Tooltip} from "@material-ui/core";
+import {Button, Menu, Tooltip, Typography} from "@material-ui/core";
 import TranslateIcon from "@material-ui/icons/Translate";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import {MenuItems} from "./menuItems";
@@ -32,7 +32,7 @@ export function LanguageToggle(props) {
                     startIcon={<TranslateIcon/>}
                     endIcon={<KeyboardArrowDownIcon/>}
                 >
-                    {text.text}
+                    <Typography variant="body1">{text.text}</Typography>
                 </Button>
             </Tooltip>
             <Menu

@@ -6,6 +6,7 @@ import {Navbar} from "./app/components/navbar";
 import {responsiveFontSizes, ThemeProvider} from "@material-ui/core";
 import {TopContent} from "./app/components/topContent";
 import Container from '@material-ui/core/Container';
+import {Footer} from "./app/components/footer";
 
 // might change toggle theme functionality => calculated here and passed as argument (function) to child (Navbar)
 
@@ -36,26 +37,27 @@ class App extends React.Component {
     render() {
         const curLang = getLanguage();
         const curTheme = getTheme();
-        const variants = ["navbar"];
+        const variants = ["navbar", "typedSubheading"];
         const responsiveFontTheme = responsiveFontSizes(curTheme, {variants: variants});
         const responsive = responsiveFontSizes(responsiveFontTheme);
 
         return (
             <ThemeProvider theme={responsive}>
-                <Container width="unset" maxWidth="100vw" className="App">
+                <Container sx={{maxWidth: "100vw !important"}}>
                     <Navbar text={curLang.nav} onLangChange={this.handleLanguageChange}
                             onThemeChange={this.handleThemeChange} themeState={this.state.theme}/>
+                </Container>
+                <Container sx={{maxWidth: "90vw !important"}}>
                     <main>
                         <TopContent text={curLang.introduction} />
-                    </main>
-                    <footer>
                         <section>
                             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                             <div id="resume">HELLO</div>
                             <div id="about">HELLO</div>
                             <div id="projects">HELLO</div>
                         </section>
-                    </footer>
+                    </main>
+                    <Footer text={curLang.footer.text} links={curLang.footer.links}/>
                 </Container>
             </ThemeProvider>
         );

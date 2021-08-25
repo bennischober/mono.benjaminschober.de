@@ -4,7 +4,6 @@ import {LanguageToggle} from "../langToggle";
 import Grid from '@material-ui/core/Grid';
 import {SingleNavItem} from "./navSingleItem";
 
-// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch for styles!
 // https://create-react-app.dev/docs/title-and-meta-tags/ for meta tags changes!
 // https://www.webtips.dev/webtips/react-hooks/element-in-viewport for title changes on scrolling!
 
@@ -21,7 +20,7 @@ export function NavItems(props) {
             <SingleNavItem containerValues={{xs: 12, sm: 3}} text={data.projects} anchor="#projects" />
             <Grid item xs={12} sm={3}>
                 <Grid container justifyContent="flex-end">
-                    <Grid item xs={12} sm={6} xl={4}>
+                    <Grid item xs={12} sm={6} xl={5}>
                         <LanguageToggle text={data.comps.btn.langToggle} onLangChange={onLangChange}/>
                     </Grid>
                     <Grid item xs={12} sm={6} xl={2}>
