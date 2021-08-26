@@ -37,26 +37,29 @@ class App extends React.Component {
     render() {
         const curLang = getLanguage();
         const curTheme = getTheme();
-        const variants = ["navbar", "typedSubheading"];
+        const variants = ["navbar", "typedSubheading", "sectionHeadlines", "styledLinks"];
         const responsiveFontTheme = responsiveFontSizes(curTheme, {variants: variants});
         const responsive = responsiveFontSizes(responsiveFontTheme);
 
+        // ROUTE AROUND BODY CONTAINER
+        // Idea: for projects use a class and extend it afterwards => basic project => project with image / video / etc.
         return (
             <ThemeProvider theme={responsive}>
                 <Container sx={{maxWidth: "100vw !important"}}>
                     <Navbar text={curLang.nav} onLangChange={this.handleLanguageChange}
                             onThemeChange={this.handleThemeChange} themeState={this.state.theme}/>
                 </Container>
-                <Container sx={{maxWidth: "90vw !important"}}>
+                <Container id="body-container" sx={{maxWidth: "95vw !important"}}>
                     <main>
                         <TopContent text={curLang.introduction} />
                         <section>
-                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                             <div id="resume">HELLO</div>
                             <div id="about">HELLO</div>
                             <div id="projects">HELLO</div>
                         </section>
                     </main>
+                </Container>
+                <Container sx={{maxWidth: "100vw !important"}}>
                     <Footer text={curLang.footer.text} links={curLang.footer.links}/>
                 </Container>
             </ThemeProvider>

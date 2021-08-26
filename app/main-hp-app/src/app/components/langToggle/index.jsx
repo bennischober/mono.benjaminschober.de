@@ -32,7 +32,7 @@ export function LanguageToggle(props) {
                     startIcon={<TranslateIcon/>}
                     endIcon={<KeyboardArrowDownIcon/>}
                 >
-                    <Typography variant="body1">{text.text}</Typography>
+                    <Typography variant="body1" sx={{fontWeight: "500"}}>{text.text}</Typography>
                 </Button>
             </Tooltip>
             <Menu

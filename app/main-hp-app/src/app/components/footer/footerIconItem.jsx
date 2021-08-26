@@ -4,18 +4,10 @@ import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-// USE LINKS OR IconButton ... try
-
 export function FooterIconItem(props) {
     const id = props.id;
     const link = props.link;
     const icon = props.icon;
-    // const aria = props.aria;
-    // const tooltip = props.tooltip;
-    //
-    // const handleOnClick = (link) => {
-    //     window.open(link);
-    // }
 
     const sizeOverride = {
         fontSize: 40,
@@ -39,11 +31,6 @@ export function FooterIconItem(props) {
     return (
         <Link id={id} href={link}>
             {iconReturn}
-            </Link>
-        // <Tooltip title={tooltip}>
-        //     <IconButton id={id} onClick={() => handleOnClick(link)} color="primary" aria-label={aria}>
-        //         {iconReturn}
-        //     </IconButton>
-        // </Tooltip>
+        </Link>
     );
 }

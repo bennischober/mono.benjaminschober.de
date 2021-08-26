@@ -30,17 +30,36 @@ let GLOBAL_STYLE = createTheme({
             "&:hover": {
                 borderBottom: "2px solid",
                 textDecoration: "none",
-                textShadow: "0 2px 5px rgb(127 67 calc(255 / 0.94))",
+                textShadow: "0 2px 5px rgb(127 67 255 / 94%)",
             }
         },
         typedSubheading: {
             fontSize: "2rem",
             color: "#000000",
-            fontWeight: "700",
+            fontWeight: "500",
             textDecoration: "unset",
             lineHeight: "1.5",
             letterSpacing: "0em",
-            textShadow: "0 2px 5px rgb(206 206 calc(206 / 0.5))",
+            textShadow: "0px 2px 5px rgb(206 206 206 / 50%)",
+        },
+        sectionHeadlines: {
+            fontSize: "2.5rem",
+            color: "#000000",
+            fontWeight: "700",
+            lineHeight: "1.5",
+            letterSpacing: "0em",
+            marginBottom: "0.5rem"
+        },
+        styledLinks: {
+            fontSize: "1rem",
+            fontWeight: "700",
+            color: "#000000",
+            "&:hover": {
+                borderBottom: "2px solid",
+                textDecoration: "none",
+                textShadow: "0px 2px 5px rgba(127, 67, 255, 0.938)",
+                cursor: "pointer"
+            }
         }
     }
 });
@@ -60,9 +79,11 @@ function changeTheme(themeName) {
 
     // variants:
     GLOBAL_STYLE.typography.navbar.color = themeName === "dark" ? "#ffffff" : "#000000";
-    GLOBAL_STYLE.typography.navbar.textShadow = themeName === "dark" ? "0 2px 5px rgb(127 67 calc(255 / 0.94))" : "0 2px 5px rgb(63 63 63/50%)";
+    GLOBAL_STYLE.typography.navbar.textShadow = themeName === "dark" ? "0 2px 5px rgb(127 67 255 / 50%)" : "0 2px 5px rgb(63 63 63/50%)";
     GLOBAL_STYLE.typography.typedSubheading.color = themeName === "dark" ? "#ffffff" : "#000000";
-    GLOBAL_STYLE.typography.typedSubheading.textShadow = themeName === "dark" ? "0 2px 5px rgb(206 206 calc(206 / 0.5))" : "0 2px 5px rgb(63 63 63/50%)";
+    GLOBAL_STYLE.typography.typedSubheading.textShadow = themeName === "dark" ? "0 2px 5px rgb(206 206 206 / 50%)" : "0 2px 5px rgb(63 63 63 / 40%)";
+    GLOBAL_STYLE.typography.sectionHeadlines.color = themeName === "dark" ? "#ffffff" : "#000000";
+    GLOBAL_STYLE.typography.styledLinks.color = themeName === "dark" ? "#ffffff" : "#000000";
 }
 
 function OverrideThemeFont() {
