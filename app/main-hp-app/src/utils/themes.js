@@ -11,6 +11,15 @@ let GLOBAL_STYLE = createTheme({
         mode: "dark"
     },
     components: {
+        MuiIconButton: {
+            styleOverrides: {
+                root: {
+                    '&:hover': {
+                        backgroundColor: "rgba(0, 0, 0, 0.08)"
+                    }
+                }
+            }
+        },
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -76,6 +85,11 @@ function changeTheme(themeName) {
     GLOBAL_STYLE.palette.type = themeName;
     GLOBAL_STYLE.palette.mode = themeName;
     GLOBAL_STYLE.palette.primary.main = themeName === "dark" ? "#ffffff" : "#000000";
+    GLOBAL_STYLE.components.MuiIconButton.styleOverrides.root = {
+        '&:hover': {
+            backgroundColor: themeName === "dark" ? "rgba(255, 255, 255, 0.08)" :  "rgba(0, 0, 0, 0.08)"
+        }
+    }
 
     // variants:
     GLOBAL_STYLE.typography.navbar.color = themeName === "dark" ? "#ffffff" : "#000000";

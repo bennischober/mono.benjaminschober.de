@@ -1,68 +1,90 @@
+import {setLanguage} from "../../utils/languages";
+
 // SCRIPT AND FILES MIGHT BE REPLACED BY MONGODB AND GRAPHQL STUFF!
+var CURRENT_LANG;
+var CURRENT_LANG_KEY;
+//var CURRENT_PRIVACY_POLICY; // will be used later...
+var CURRENT_DICTIONARY;
 
-// normal structure:
-// ---lang
-//    ---lang-code
-//       ---lang-code.json
+//***************** FETCH TO SPECIFIC LANGUAGE FILE *****************\\
+export function getCurrentText() {
+    //if(typeof CURRENT_LANG === undefined) changeLanguage('en');
+    return CURRENT_LANG;
+}
 
+export function getCurrentLangKey() {
+    return CURRENT_LANG_KEY;
+}
 
-// example:
-// ---lang
-//    ---de
-//       ---de.json
-
-import de from "./de/de.json";
-import en from "./en/en.json";
-
-var CURRENT_LANG = "de";
-
-const de_obj = {
-    key: "de",
-    display: "Deutsch",
-    json: de,
-};
-
-const en_obj = {
-    key: "en",
-    display: "English",
-    json: en,
-};
-
-const allLang = [de_obj, en_obj];
-
-/**
- * Returns an object with all language specific data.
- * @param lang: string of language code
- * */
-export function getText(lang) {
-    let el = undefined;
-    for(let element of allLang) {
-        if(element.key === lang) {
-            el = element;
-            break;
+// second parameter(handleLoadData): invoke data change to rerender frontend
+export function changeLanguage(lang, handleLoadData) {
+    CURRENT_LANG_KEY = lang;
+    getFetchedLanguageText(lang).then((response) => {
+        if(checkForLanguageErrors()) {
+            CURRENT_LANG = response
+            handleLoadData();
+        } else {
+            // WILL BE REPLACED BY DB DATA INSTEAD OF CALLBACK! => import can be removed later
+            setLanguage('en', handleLoadData);
         }
+    });
+}
+
+// check for errors, before set CURRENT_LANG
+function checkForLanguageErrors(response) {
+    return typeof response !== undefined;
+}
+
+function getFetchedLanguageText(lang) {
+    return fetch(`/static/lang/${lang}/${lang}.json`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    }).then(function (response) {
+        return response.json();
+    }).then(function (langData) {
+        return langData;
+    }).catch(error => console.warn(error));
+}
+
+//***************** FETCH TO DICTIONARY *****************\\
+export function getIndexedLanguageItems() {
+    if(typeof CURRENT_DICTIONARY !== "undefined") {
+        console.log("Served cached data of: CURRENT_DICTIONARY!"); // MIGHT REWORK CALL OF THIS => SAVE DATA IN THE SPECIFIC FUNCTION TO NOT CALL THIS EVERY TIME!!!
+        return CURRENT_DICTIONARY;
     }
-    return el === undefined ? en_obj : el;
+
+    // NOTE: THIS FETCH IS ONLY USED 1 TIME! OTHER CALLS CAN BE CACHED!
+    getFetchedDictionaryItems().then((response) => {
+        if(checkForIndexErrors) {
+            CURRENT_DICTIONARY = response;
+        } else {
+            console.warn("WTF! else case in getFetchedDictionaryItems()");
+            // WILL BE REPLACED BY DATABASE DATA! => THIS ERROR CAN OCCUR ONLY 1 TIME! OTHER CALLS ARE CACHED
+            CURRENT_DICTIONARY = [{'key': 'de', "language" : "DEUTSCH"}, {'key': 'en', "language" : "ENGLISH"}];
+        }
+    });
+    return CURRENT_DICTIONARY;
 }
 
-export function getCurrentLanguageText() {
-    return getText(CURRENT_LANG).json;
+// check for errors before set CURRENT_DICTIONARY
+function checkForIndexErrors(response) {
+    // if error occurs, get data from DB
+    return typeof response !== undefined;
 }
 
-export function changeLanguage(lang) {
-    CURRENT_LANG = lang;
+function getFetchedDictionaryItems() {
+    return fetch('/static/lang/language_dictionary.json', {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    }).then(function (response) {
+        return response.json();
+    }).then(function (dictData) {
+        return dictData;
+    }).catch(error => console.warn(error));
 }
 
-export function getCurrentLanguageKey() {
-    return getText(CURRENT_LANG).key;
-}
-
-export function getAllLanguageObjects() {
-    return allLang;
-}
-
-export function getAllLangaugesDisplayName() {
-    let names = [];
-    allLang.forEach(element => names.fill(element.display));
-    return names;
-}
+//***************** FETCH TO PRIVACY POLICY *****************\\

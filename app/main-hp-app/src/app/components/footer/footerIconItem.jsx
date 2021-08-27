@@ -17,6 +17,9 @@ export function FooterIconItem(props) {
         '@media (min-width:1280px)': {
             fontSize: 100
         },
+        "&:hover": {
+            color: "rgba(127, 67, 255, 0.938)"
+        },
     }
 
     let iconReturn;

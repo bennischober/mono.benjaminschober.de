@@ -11,19 +11,33 @@ export function TopContent(props) {
                 fontWeight: "700",
                 textShadow: "0 2px 5px rgb(206 206 206 / 50%);",
                 marginTop: isFirst ? "5rem" : "0",
+                fontSize: "1.75rem",
+                marginBottom: !isFirst? "0" : "",
                 '@media (min-width:960px)': {
                     marginTop: isFirst ? "25vh" : "0",
+                    fontSize: "2.5rem",
+                    marginBottom: !isFirst? "2.5rem" : "",
+                },
+                '@media (min-width:1216px)': {
+                    fontSize: "6rem",
+                    marginBottom: !isFirst? "5rem" : "",
                 },
                 '@media (min-width:1920px)': {
                     marginTop: isFirst ? "35vh" : "0",
                 },
-                marginBottom: !isFirst? "5rem" : "",
             }
         );
     }
 
     const h2Overwrites = {
         marginTop: "1.5rem",
+        fontSize: "0.75rem",
+        '@media (min-width:960px)': {
+            fontSize: "1.25rem",
+        },
+        '@media (min-width:1216px)': {
+            fontSize: "2rem",
+        }
     }
 
     return (
