@@ -1,5 +1,6 @@
 import React from "react";
 import {Typography} from "@material-ui/core";
+import {styled} from "@material-ui/system"
 
 export function TopContent(props) {
     const text = props.text;
@@ -12,15 +13,15 @@ export function TopContent(props) {
                 textShadow: "0 2px 5px rgb(206 206 206 / 50%);",
                 marginTop: isFirst ? "5rem" : "0",
                 fontSize: "1.75rem",
-                marginBottom: !isFirst? "0" : "",
+                marginBottom: !isFirst ? "0.5rem" : "",
                 '@media (min-width:960px)': {
                     marginTop: isFirst ? "25vh" : "0",
                     fontSize: "2.5rem",
-                    marginBottom: !isFirst? "2.5rem" : "",
+                    marginBottom: !isFirst ? "2.5rem" : "",
                 },
                 '@media (min-width:1216px)': {
                     fontSize: "6rem",
-                    marginBottom: !isFirst? "5rem" : "",
+                    marginBottom: !isFirst ? "5rem" : "",
                 },
                 '@media (min-width:1920px)': {
                     marginTop: isFirst ? "35vh" : "0",
@@ -29,22 +30,20 @@ export function TopContent(props) {
         );
     }
 
+    const StyledH1 = styled('h1')(`
+    margin: 0;
+    line-height: 1;
+    `);
+
     const h2Overwrites = {
         marginTop: "1.5rem",
-        fontSize: "0.75rem",
-        '@media (min-width:960px)': {
-            fontSize: "1.25rem",
-        },
-        '@media (min-width:1216px)': {
-            fontSize: "2rem",
-        }
     }
 
     return (
         <header className="css-typing">
             <Typography variant="h1" sx={h1Overwrites(true)} gutterBottom>{text.intro}</Typography>
             <Typography variant="h1" sx={h1Overwrites(false)}>{text.name}</Typography>
-            <h1><Typography variant="typedSubheading" sx={h2Overwrites}>{text.sub}</Typography></h1>
+            <StyledH1><Typography variant="typedSubheading" sx={h2Overwrites}>{text.sub}</Typography></StyledH1>
         </header>
     );
 }

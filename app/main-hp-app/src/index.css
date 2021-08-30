@@ -6,7 +6,7 @@
   --material-icons-inactive: rgba(0, 0, 0, 0.26);
 
   --second-anim-text: 12ch;
-  --third-anim-text: 16ch;
+  --third-anim-text: 15ch;
 }
 
 [data-theme="dark"] {
@@ -19,11 +19,23 @@
 
 [lang="de"] {
   --second-anim-text: 16ch;
-  --third-anim-text: 18ch;
+  --third-anim-text: 16ch;
 }
 
 ::selection {
   background-color: rgba(127, 67, 255, 0.938);
+}
+
+@media only screen and (min-width:600px) {
+  :root {
+    --second-anim-text: 12ch;
+    --third-anim-text: 26ch;
+  }
+
+  [lang="de"] {
+    --second-anim-text: 16ch;
+    --third-anim-text: 29ch;
+  }
 }
 
 @media only screen and (min-width:960px) {
@@ -53,6 +65,7 @@
 body {
   background-color: var(--color-bg);
   margin: 0;
+  font-size: 1em;
   font-family: -apple-system, 'Space Mono', 'Roboto', monospace, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

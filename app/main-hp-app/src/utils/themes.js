@@ -16,7 +16,7 @@ let GLOBAL_STYLE = createTheme({
                 root: {
                     '&:hover': {
                         backgroundColor: "rgba(0, 0, 0, 0.08)"
-                    }
+                    },
                 }
             }
         },
@@ -29,8 +29,17 @@ let GLOBAL_STYLE = createTheme({
         }
     },
     typography: {
+        h1: {
+            fontSize: "3.5rem",
+            '@media (min-width:600px)': {
+                fontSize: "3.5rem",
+            }
+        },
         navbar: {
-            fontSize: "1.5rem",
+            fontSize: "1rem",
+            '@media (min-width: 900px)' : {
+                fontSize: "1.5rem",
+            },
             color: "#000000",
             fontWeight: "700",
             textDecoration: "unset",
@@ -43,7 +52,13 @@ let GLOBAL_STYLE = createTheme({
             }
         },
         typedSubheading: {
-            fontSize: "2rem",
+            fontSize: "0.7rem",
+            '@media (min-width:600px)': {
+                fontSize: "1.25rem",
+            },
+            '@media (min-width:1200px)': {
+                fontSize: "2rem",
+            },
             color: "#000000",
             fontWeight: "500",
             textDecoration: "unset",

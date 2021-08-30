@@ -10,7 +10,12 @@ export function MainContentSection(props) {
         <Container id="body-container" sx={{maxWidth: "95vw !important"}}>
             <main>
                 <TopContent text={text.introduction}/>
-                <Container id="main-content-container" sx={{maxWidth: "100vw!important", paddingLeft: "0!important", paddingRight: "0!important", textAlign: "center"}}>
+                <Container id="main-content-container" sx={{
+                    maxWidth: "100vw!important",
+                    paddingLeft: "0!important",
+                    paddingRight: "0!important",
+                    textAlign: "center"
+                }}>
                     <section>
                         <div id="resume">HELLO</div>
                         <div id="about">HELLO</div>

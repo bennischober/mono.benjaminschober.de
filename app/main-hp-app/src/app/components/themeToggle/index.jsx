@@ -12,12 +12,19 @@ export function ThemeToggle(props) {
         changeTheme(nextState);
     };
 
+    const fontOverride = {
+        fontSize: '1.25rem',
+        '@media (min-width:1200px)': {
+            fontSize: "1.5rem",
+        },
+    }
+
     return (
         <Tooltip title={text.tooltip}>
             <IconButton
                 id="theme-button"
                 onClick={() => themeState === "dark" ? handleOnClick("light") : handleOnClick("dark")}>
-                {themeState === "dark" ? <BrightnessHighIcon color="primary"/> : <Brightness4Icon color="primary"/>}
+                {themeState === "dark" ? <BrightnessHighIcon color="primary" sx={fontOverride}/> : <Brightness4Icon color="primary" sx={fontOverride}/>}
             </IconButton>
         </Tooltip>
     );

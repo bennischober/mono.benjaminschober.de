@@ -8,6 +8,7 @@ export function FooterIconItem(props) {
     const id = props.id;
     const link = props.link;
     const icon = props.icon;
+    const sx = props.sx;
 
     const sizeOverride = {
         fontSize: 40,
@@ -32,7 +33,7 @@ export function FooterIconItem(props) {
     }
 
     return (
-        <Link id={id} href={link}>
+        <Link id={id} href={link} sx={sx}>
             {iconReturn}
         </Link>
     );
