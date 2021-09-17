@@ -1,6 +1,5 @@
 import React from "react";
-import {Typography} from "@material-ui/core";
-import {styled} from "@material-ui/system"
+import {Typography} from "@mui/material";
 
 export function TopContent(props) {
     const text = props.text;
@@ -30,11 +29,6 @@ export function TopContent(props) {
         );
     }
 
-    const StyledH1 = styled('h1')(`
-    margin: 0;
-    line-height: 1;
-    `);
-
     const h2Overwrites = {
         marginTop: "1.5rem",
     }
@@ -43,7 +37,7 @@ export function TopContent(props) {
         <header className="css-typing">
             <Typography variant="h1" sx={h1Overwrites(true)} gutterBottom>{text.intro}</Typography>
             <Typography variant="h1" sx={h1Overwrites(false)}>{text.name}</Typography>
-            <StyledH1><Typography variant="typedSubheading" sx={h2Overwrites}>{text.sub}</Typography></StyledH1>
+            <h1><Typography variant="typedSubheading" sx={h2Overwrites}>{text.sub}</Typography></h1>
         </header>
     );
 }

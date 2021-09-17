@@ -1,7 +1,7 @@
 import React from "react";
 import {ThemeToggle} from "../themeToggle";
 import {LanguageToggle} from "../langToggle";
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 import {SingleNavItem} from "./navSingleItem";
 
 // https://create-react-app.dev/docs/title-and-meta-tags/ for meta tags changes!

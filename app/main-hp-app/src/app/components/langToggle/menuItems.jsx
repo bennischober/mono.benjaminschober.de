@@ -1,5 +1,5 @@
 import React from 'react';
-import {MenuItem} from "@material-ui/core";
+import MenuItem from '@mui/material/MenuItem';
 
 export function MenuItems(props) {
     const menuData = props.menuData;

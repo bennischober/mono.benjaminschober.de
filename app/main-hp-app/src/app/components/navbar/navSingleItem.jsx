@@ -1,7 +1,6 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
+import {Grid, Typography} from "@mui/material";
 import {AnchorLink} from "../anchorLink";
-import {Typography} from "@material-ui/core";
 
 export function SingleNavItem(props) {
     const xs = props.xs;

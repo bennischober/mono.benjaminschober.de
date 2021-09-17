@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
+import Container from "@mui/material/Container";
 import {Navbar} from "../../components/navbar";
 
 export function NavSection(props) {

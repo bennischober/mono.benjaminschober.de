@@ -1,13 +1,14 @@
 import React from "react";
 import {FooterIconItem} from "./footerIconItem";
-import {styled} from '@material-ui/system';
-import {Grid, Typography} from "@material-ui/core";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography"
 import {getCurrentYear} from "../../../utils/randomHelper";
 import {StandardLink} from "../stdComponents/StandardLink";
+import {styled} from "@mui/styles";
 
-const StyledFooter = styled('footer')(`
-    text-align: center;
-`);
+const StyledFooter = styled('footer')({
+    textAlign: "center"
+});
 
 const iconStyle = {
     padding: '1em',

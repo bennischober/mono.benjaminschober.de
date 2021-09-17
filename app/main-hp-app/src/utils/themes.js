@@ -1,4 +1,4 @@
-const {createTheme} = require("@material-ui/core");
+const {createTheme} = require("@mui/material");
 
 const masterFont = 'Space Mono';
 const secondMasterFont = 'Roboto';

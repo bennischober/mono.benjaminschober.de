@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {responsiveFontSizes, ThemeProvider} from "@material-ui/core";
+import {responsiveFontSizes, ThemeProvider} from "@mui/material";
 import {FooterSection} from "./app/containers/footer-section";
 import {MainContentSection} from "./app/containers/main-content-section";
 import {NavSection} from "./app/containers/nav-section";
@@ -63,6 +63,7 @@ class App extends React.Component {
 
         // ROUTE AROUND BODY CONTAINER
         return (
+            // route to /bsbadmin
             <ThemeProvider theme={responsive}>
                 <NavSection text={curLang.nav} onLangChange={this.handleLanguageChange}
                             onThemeChange={this.handleThemeChange} themeState={this.state.theme}/>

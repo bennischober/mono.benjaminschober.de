@@ -1,6 +1,8 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
+import Container from '@mui/material/Container';
 import {TopContent} from "../../components/topContent";
+import {SectionHeadline} from "../../components/sectionHeadline";
+import {AboutSection} from "./aboutSection";
 
 // Idea: for projects use a class and extend it afterwards => basic project => project with image / video / etc.
 export function MainContentSection(props) {
@@ -17,9 +19,9 @@ export function MainContentSection(props) {
                     textAlign: "center"
                 }}>
                     <section>
-                        <div id="resume">HELLO</div>
-                        <div id="about">HELLO</div>
-                        <div id="projects">HELLO</div>
+                        <AboutSection text={text.sections.about} />
+                        <SectionHeadline id="resume">{text.sections.resume.title}</SectionHeadline>
+                        <SectionHeadline id="projects">{text.sections.projects.title}</SectionHeadline>
                     </section>
                 </Container>
             </main>

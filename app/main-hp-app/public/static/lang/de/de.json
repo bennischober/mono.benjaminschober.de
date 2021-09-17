@@ -20,29 +20,70 @@
     "name":  "Ich bin Benjamin",
     "sub": "ein Game Engineering Student aus Deutschland."
   },
-  "about": {},
-  "resume": {},
-  "skills": {},
-  "projects": {
-    "semester1": {
+  "sections": {
+    "about": {
+      "title": "Über mich",
       "text": {
-        "headline": "Blender Projekt",
-        "subHeadline": "Gruppenprojekt im 1. Fachsemester",
-        "description": "Dieses Gruppenprojekt, bestehend aus zwei Personen, diente als Einstieg in die Modellierung und in das Animieren in Blender."
+        "name": "Benjamin Schober",
+        "profession": "Game-Engineer / Software-Engineer",
+        "cvDE": "CV (DE)",
+        "cvEN": "CV (EN)",
+        "ageTerm": "Alter",
+        "nationality": "Deutsch",
+        "nationalityTerm": "Nationalität",
+        "education": "Derzeit studiere ich Game Engineering",
+        "educationTerm": "Ausbildung",
+        "languages": ["deutsch", "englisch"],
+        "languagesTerm": "Sprachen"
+      },
+      "links": {
+        "cvDE": "/static/ressources/cv_de.pdf",
+        "cvEN": "/static/ressources/cv_en.pdf"
       }
     },
-    "semester3": {
+    "resume": {
+      "title": "Lebenslauf",
+      "experience": {
+        "title": "Ausbildung und Erfahrung",
+        "text": {
 
+        },
+        "links": {
+
+        }
+      },
+      "skills": {
+        "title": "Kenntnisse",
+        "text": {
+
+        },
+        "values": {
+
+        }
+      }
     },
-    "semester4": {
+    "projects": {
+      "title": "Projekte",
+      "semester1": {
+        "text": {
+          "headline": "Blender Projekt",
+          "subHeadline": "Gruppenprojekt im 1. Fachsemester",
+          "description": "Dieses Gruppenprojekt, bestehend aus zwei Personen, diente als Einstieg in die Modellierung und in das Animieren in Blender."
+        }
+      },
+      "semester3": {
 
-    },
-    "semester6": {
+      },
+      "semester4": {
 
-    },
-    "internship": {
-      "msq": {
+      },
+      "semester6": {
 
+      },
+      "internship": {
+        "msq": {
+
+        }
       }
     }
   },

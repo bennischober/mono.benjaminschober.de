@@ -1,7 +1,7 @@
 import React from "react";
-import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
-import Brightness4Icon from '@material-ui/icons/Brightness4';
-import {IconButton, Tooltip} from "@material-ui/core";
+import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import {IconButton, Tooltip} from "@mui/material";
 
 export function ThemeToggle(props) {
     const text = props.text;

@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button, Menu, Tooltip, Typography} from "@material-ui/core";
-import TranslateIcon from "@material-ui/icons/Translate";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import {Typography, Menu, Tooltip, Button} from "@mui/material";
+import TranslateIcon from '@mui/icons-material/Translate';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {MenuItems} from "./menuItems";
 import {getLanguageIndex, getLanguageKey} from "../../../utils/languages";
 

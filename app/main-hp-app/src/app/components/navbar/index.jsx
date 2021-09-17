@@ -1,14 +1,13 @@
 import React from "react";
 import {NavItems} from "./navItems";
-import {styled} from '@material-ui/system';
+import {styled} from '@mui/styles';
 
 
-const StyledNav = styled('nav')(`
-    flex-grow: 1;
-    margin: 1rem 0 1rem 0;
-    text-align: center;
-`);
-
+const StyledNav = styled("nav")({
+    flexGrow: 1,
+    margin: "1rem 0 1rem 0",
+    textAlign: "center",
+});
 
 export function Navbar(props) {
     const txt = props.text;

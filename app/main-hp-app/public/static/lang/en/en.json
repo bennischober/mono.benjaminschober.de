@@ -20,29 +20,70 @@
     "name":  "I'm Benjamin",
     "sub": "a game engineering student from Germany."
   },
-  "about": {},
-  "resume": {},
-  "skills": {},
-  "projects": {
-    "semester1": {
+  "sections": {
+    "about": {
+      "title": "About me",
       "text": {
-        "headline": "Blender Project",
-        "subHeadline": "Group project during semester 1",
-        "description": "This was a group project of 2 people during semester 1, to get familiar with Blender."
+        "name": "Benjamin Schober",
+        "profession": "Game-Engineer / Software-Engineer",
+        "cvDE": "CV (DE)",
+        "cvEN": "CV (EN)",
+        "ageTerm": "Age",
+        "nationality": "German",
+        "nationalityTerm": "Nationality",
+        "education": "I currently study game engineering",
+        "educationTerm": "Education",
+        "languages": ["German", "English"],
+        "languagesTerm": "Languages"
+      },
+      "links": {
+        "cvDE": "/static/ressources/cv_de.pdf",
+        "cvEN": "/static/ressources/cv_en.pdf"
       }
     },
-    "semester3": {
+    "resume": {
+      "title": "Resume",
+      "experience": {
+        "title": "Education and Experience",
+        "text": {
 
+        },
+        "links": {
+
+        }
+      },
+      "skills": {
+        "title": "Skills",
+        "text": {
+
+        },
+        "values": {
+
+        }
+      }
     },
-    "semester4": {
+    "projects": {
+      "title": "Projects",
+      "semester1": {
+        "text": {
+          "headline": "Blender Project",
+          "subHeadline": "Group project during semester 1",
+          "description": "This was a group project of 2 people during semester 1, to get familiar with Blender."
+        }
+      },
+      "semester3": {
 
-    },
-    "semester6": {
+      },
+      "semester4": {
 
-    },
-    "internship": {
-      "msq": {
+      },
+      "semester6": {
 
+      },
+      "internship": {
+        "msq": {
+
+        }
       }
     }
   },

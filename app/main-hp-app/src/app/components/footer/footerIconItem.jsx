@@ -1,8 +1,8 @@
 import React from "react";
-import {Link} from "@material-ui/core"; // IconButton, Tooltip,
-import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Link from '@mui/material/Link';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export function FooterIconItem(props) {
     const id = props.id;
