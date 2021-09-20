@@ -11,8 +11,8 @@ let GLOBAL_STYLE = createTheme({
         mode: "dark",
         bars: {
             main: "#7f43ffef",
-            light: "#7f43ffef",
-            dark: "#7f43ffef",
+            light: "rgba(72,52,115,0.94)",
+            dark: "rgba(34,20,58,0.94)",
             50: "#E9FBF0",
             100: "#C6F6D9",
             200: "#9AEFBC",

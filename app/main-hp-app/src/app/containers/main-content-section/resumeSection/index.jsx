@@ -10,7 +10,7 @@ export function ResumeSection(props) {
     const text = props.text;
     const title = text.title;
 
-    return(
+    return (
         <section id={id}>
             <SectionHeadline id="resume">{title}</SectionHeadline>
             <SectionSubHeadline sx={{textAlign: "center"}}>
@@ -20,7 +20,7 @@ export function ResumeSection(props) {
             <SectionSubHeadline sx={{textAlign: "center"}}>
                 {text.skills.title}
             </SectionSubHeadline>
-            <SkillsContainer data={text.skills.data} />
+            <SkillsContainer data={text.skills.data}/>
         </section>
     );
 }

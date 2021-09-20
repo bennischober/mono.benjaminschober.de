@@ -1,10 +1,8 @@
 import React from "react";
 import {SectionHeadline} from "../../../components/sectionHeadline";
+import {ProjectsComponent} from "../../../components/projectsComponent";
+import {LinkButton} from "../../../components/stdComponents/linkButton";
 
-
-// for projects:
-// https://levelup.gitconnected.com/rendering-3d-objects-and-animation-in-react-using-three-fiber-bf0255e642be => display 3d model
-// https://www.npmjs.com/package/react-device-detect => only display 3d model on supported devices!
 export function ProjectsSection(props) {
     const id = props.id;
     const text = props.text;
@@ -13,6 +11,8 @@ export function ProjectsSection(props) {
     return(
         <section id={id}>
             <SectionHeadline id="projects">{title}</SectionHeadline>
+            <LinkButton text="hello" link="hello"/>
+            <ProjectsComponent />
         </section>
     );
 }

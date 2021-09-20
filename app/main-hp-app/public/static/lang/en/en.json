@@ -148,27 +148,37 @@
     },
     "projects": {
       "title": "Projects",
-      "semester1": {
-        "text": {
-          "headline": "Blender Project",
-          "subHeadline": "Group project during semester 1",
-          "description": "This was a group project of 2 people during semester 1, to get familiar with Blender."
+      "data": [
+        {
+          "id": "semester1",
+          "description": {
+            "headline": "Blender Project",
+            "subHeadline": "Group project during semester 1",
+            "description": "This was a group project of 2 people during semester 1 to get familiar with Blender."
+          },
+          "images": {
+            "description": "Raw model of a spaceship - part of the project.",
+            "rootPath": "/static/images/projects/1/",
+            "data": [
+              {
+                "name": "Ship_Front_Slide.jpg",
+                "alt": "Front view of the spaceship",
+                "id": "spaceship-front"
+              },
+              {
+                "name": "Ship_Side_Slide.jpg",
+                "alt": "Side view of the spaceship",
+                "id": "spaceship-side"
+              },
+              {
+                "name": "Ship_Top_Slide.jpg",
+                "alt": "Top view of the spaceship",
+                "id": "spaceship-top"
+              }
+            ]
+          }
         }
-      },
-      "semester3": {
-
-      },
-      "semester4": {
-
-      },
-      "semester6": {
-
-      },
-      "internship": {
-        "msq": {
-
-        }
-      }
+      ]
     }
   },
   "footer": {

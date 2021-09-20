@@ -1,6 +1,9 @@
 import {setLanguage} from "../../utils/languages";
 
 // SCRIPT AND FILES MIGHT BE REPLACED BY MONGODB AND GRAPHQL STUFF!
+
+// maybe create dictionary to cache language files at execution time => could also be saved IndexedDB / LocalStorage?
+
 var CURRENT_LANG;
 var CURRENT_LANG_KEY;
 //var CURRENT_PRIVACY_POLICY; // will be used later...
@@ -35,23 +38,21 @@ function checkForLanguageErrors(response) {
     return typeof response !== undefined;
 }
 
-function getFetchedLanguageText(lang) {
-    return fetch(`/static/lang/${lang}/${lang}.json`, {
+async function getFetchedLanguageText(lang) {
+    const response = await fetch(`/static/lang/${lang}/${lang}.json`, {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         }
-    }).then(function (response) {
-        return response.json();
-    }).then(function (langData) {
-        return langData;
     }).catch(error => console.warn(error));
+
+    return await response.json();
 }
 
 //***************** FETCH TO DICTIONARY *****************\\
 export function getIndexedLanguageItems() {
     if(typeof CURRENT_DICTIONARY !== "undefined") {
-        console.log("Served cached data of: CURRENT_DICTIONARY!"); // MIGHT REWORK CALL OF THIS => SAVE DATA IN THE SPECIFIC FUNCTION TO NOT CALL THIS EVERY TIME!!!
+        // MIGHT REWORK CALL OF THIS => SAVE DATA IN THE SPECIFIC FUNCTION TO NOT CALL THIS EVERY TIME!!!
         return CURRENT_DICTIONARY;
     }
 
