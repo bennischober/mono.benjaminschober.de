@@ -25,7 +25,7 @@
       "title": "Über mich",
       "text": {
         "name": "Benjamin Schober",
-        "profession": "Game-Engineer / Software-Engineer",
+        "profession": ["Game-Engineer", " Software-Engineer"],
         "cvDE": "CV (DE)",
         "cvEN": "CV (EN)",
         "ageTerm": "Alter",
@@ -46,20 +46,104 @@
       "experience": {
         "title": "Ausbildung und Erfahrung",
         "text": {
-
-        },
-        "links": {
-
+          "data": [
+            {
+              "text": {
+                "title":  "Werksstudent, Bachelorarbeit",
+                "subtitle": "Bachelorarbeit: Locomotion in VR über große Distanzen",
+                "date": "2021-heute",
+                "organizationName": "Mediasquad Medienentwicklungs- und Vertriebs-GmbH"
+              },
+              "links": {
+                "homepage": "https://www.msq.at/"
+              }
+            },
+            {
+              "text": {
+                "title":  "Praxissemester",
+                "subtitle": "Unity3D Developer Praktikant",
+                "date": "2020-2021",
+                "organizationName": "Mediasquad Medienentwicklungs- und Vertriebs-GmbH"
+              },
+              "links": {
+                "homepage": "https://www.msq.at/"
+              }
+            },
+            {
+              "text": {
+                "title":  "Bachelor",
+                "subtitle": "Game Engineering",
+                "date": "2018-heute",
+                "organizationName": "Hochschule für angewandte Wissenschaften Kempten"
+              },
+              "links": {
+                "homepage": "https://www.hs-kempten.de/"
+              }
+            },
+            {
+              "text": {
+                "title":  "Abitur",
+                "subtitle": "Ausbildungsrichtung: Technik",
+                "date": "2017-2018",
+                "organizationName": "Staatliche Berufsoberschule Kempten"
+              },
+              "links": {
+                "homepage": "https://www.fosbos-kempten.de/"
+              }
+            },
+            {
+              "text": {
+                "title":  "Ausbildung",
+                "subtitle": "Berufsschule",
+                "date": "2014-2017",
+                "organizationName": "Staatliche Berufsschule I Kempten"
+              },
+              "links": {
+                "homepage": "https://www.bs1-kempten.de/"
+              }
+            },
+            {
+              "text": {
+                "title":  "Ausbildung",
+                "subtitle": "Ausbildungsbetrieb",
+                "date": "2014-2017",
+                "organizationName": "IN Media KG"
+              },
+              "links": {
+                "homepage": "https://www.in-mediakg.de/"
+              }
+            }
+          ]
         }
       },
       "skills": {
         "title": "Kenntnisse",
-        "text": {
-
-        },
-        "values": {
-
-        }
+        "data": [
+          {
+            "text" : "C, C#, C++",
+            "value": 75
+          },
+          {
+            "text" : "Datenbanken",
+            "value": 65
+          },
+          {
+            "text" : "Web Development",
+            "value": 90
+          },
+          {
+            "text" : "SCRUM",
+            "value": 80
+          },
+          {
+            "text" : "3D Grafik Software (Blender, Cinema 4D)",
+            "value": 75
+          },
+          {
+            "text" : "Gängige Engines (Unity, Unreal Engine)",
+            "value": 85
+          }
+        ]
       }
     },
     "projects": {

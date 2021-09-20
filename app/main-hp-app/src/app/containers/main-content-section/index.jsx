@@ -1,8 +1,9 @@
 import React from "react";
 import Container from '@mui/material/Container';
 import {TopContent} from "../../components/topContent";
-import {SectionHeadline} from "../../components/sectionHeadline";
-import {AboutSection} from "./aboutSection";
+import {AboutSection} from "./aboutSection/index";
+import {ResumeSection} from "./resumeSection";
+import {ProjectsSection} from "./projectsSection";
 
 // Idea: for projects use a class and extend it afterwards => basic project => project with image / video / etc.
 export function MainContentSection(props) {
@@ -18,11 +19,9 @@ export function MainContentSection(props) {
                     paddingRight: "0!important",
                     textAlign: "center"
                 }}>
-                    <section>
-                        <AboutSection text={text.sections.about} />
-                        <SectionHeadline id="resume">{text.sections.resume.title}</SectionHeadline>
-                        <SectionHeadline id="projects">{text.sections.projects.title}</SectionHeadline>
-                    </section>
+                    <AboutSection text={text.sections.about} id="about-section"/>
+                    <ResumeSection text={text.sections.resume} id="resume-section"/>
+                    <ProjectsSection text={text.sections.projects} id="projects-section"/>
                 </Container>
             </main>
         </Container>

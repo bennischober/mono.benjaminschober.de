@@ -8,7 +8,23 @@ const fontFamilyOverwrites = `'${masterFont}', '${secondMasterFont}', 'Helvetica
 let GLOBAL_STYLE = createTheme({
     palette: {
         type: "dark",
-        mode: "dark"
+        mode: "dark",
+        bars: {
+            main: "#7f43ffef",
+            light: "#7f43ffef",
+            dark: "#7f43ffef",
+            50: "#E9FBF0",
+            100: "#C6F6D9",
+            200: "#9AEFBC",
+            300: "#6AE79C",
+            400: "#3EE07F",
+            500: "#21CC66",
+            600: "#1DB45A",
+            700: "#1AA251",
+            800: "#178D46",
+            900: "#0F5C2E",
+            contrastText: "rgba(0, 0, 0, 0.87)"
+        }
     },
     components: {
         MuiIconButton: {
@@ -74,6 +90,13 @@ let GLOBAL_STYLE = createTheme({
             letterSpacing: "0em",
             marginBottom: "0.5rem"
         },
+        sectionSubHeadlines: {
+            fontSize: "2rem",
+            color: "#000000",
+            fontWeight: "700",
+            lineHeight: "1.5",
+            letterSpacing: "0em",
+        },
         styledLinks: {
             fontSize: "1rem",
             fontWeight: "700",
@@ -100,6 +123,7 @@ function changeTheme(themeName) {
     GLOBAL_STYLE.palette.type = themeName;
     GLOBAL_STYLE.palette.mode = themeName;
     GLOBAL_STYLE.palette.primary.main = themeName === "dark" ? "#ffffff" : "#000000";
+    GLOBAL_STYLE.palette.text.secondary = themeName === "dark" ? "#ffffffb3" : "#151515b3";
     GLOBAL_STYLE.components.MuiIconButton.styleOverrides.root = {
         '&:hover': {
             backgroundColor: themeName === "dark" ? "rgba(255, 255, 255, 0.08)" :  "rgba(0, 0, 0, 0.08)"
@@ -112,6 +136,7 @@ function changeTheme(themeName) {
     GLOBAL_STYLE.typography.typedSubheading.color = themeName === "dark" ? "#ffffff" : "#000000";
     GLOBAL_STYLE.typography.typedSubheading.textShadow = themeName === "dark" ? "0 2px 5px rgb(206 206 206 / 50%)" : "0 2px 5px rgb(63 63 63 / 40%)";
     GLOBAL_STYLE.typography.sectionHeadlines.color = themeName === "dark" ? "#ffffff" : "#000000";
+    GLOBAL_STYLE.typography.sectionSubHeadlines.color = themeName === "dark" ? "#ffffff" : "#000000";
     GLOBAL_STYLE.typography.styledLinks.color = themeName === "dark" ? "#ffffff" : "#000000";
 }
 
