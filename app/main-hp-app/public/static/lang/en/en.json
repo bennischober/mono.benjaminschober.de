@@ -176,6 +176,21 @@
                 "id": "spaceship-top"
               }
             ]
+          },
+          "buttons": {
+            "modal": {
+              "text": "Watch the video"
+            }
+          },
+          "modal": {
+            "content": {
+              "type": "video",
+              "headline": "Blender Project",
+              "description": "YouTube Video",
+              "data": {
+                "id": "RzhIRxT1uVU"
+              }
+            }
           }
         }
       ]

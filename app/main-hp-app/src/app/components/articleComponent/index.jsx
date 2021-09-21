@@ -6,11 +6,17 @@ export function ArticleComponent(props) {
     const sub = props.sub;
     const text = props.text;
 
+    const align = props.align;
+    let alignHead, alignSub, alignText;
+    if(align.head) alignHead = align.head;
+    if(align.sub) alignSub = align.sub;
+    if(align.text) alignText = align.text;
+
     return(
-        <div>
-            <Typography variant="sectionSubHeadlines">{head}</Typography>
-            <Typography variant="h4">{sub}</Typography>
-            <Typography variant="body">{text}</Typography>
-        </div>
+        <React.Fragment>
+            <Typography variant="sectionSubHeadlines" sx={alignHead}>{head}</Typography>
+            <Typography variant="h5" sx={alignSub}>{sub}</Typography>
+            <Typography variant="body" sx={alignText}>{text}</Typography>
+        </React.Fragment>
     );
 }

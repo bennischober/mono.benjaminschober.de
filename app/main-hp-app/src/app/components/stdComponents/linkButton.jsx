@@ -27,6 +27,8 @@ export function LinkButton(props) {
     let color = props.color;
     if(!props.color) color = "bars";
 
+    if(props.style) sx = {...(existCheck(sx)), ...props.style};
+
     return(
         <StandardLink href={link}>
             <Button variant={variant} color={color} sx={sx}>

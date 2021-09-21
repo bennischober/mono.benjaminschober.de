@@ -11,18 +11,34 @@ let GLOBAL_STYLE = createTheme({
         mode: "dark",
         bars: {
             main: "#7f43ffef",
-            light: "rgba(72,52,115,0.94)",
-            dark: "rgba(34,20,58,0.94)",
-            50: "#E9FBF0",
-            100: "#C6F6D9",
-            200: "#9AEFBC",
-            300: "#6AE79C",
-            400: "#3EE07F",
-            500: "#21CC66",
-            600: "#1DB45A",
-            700: "#1AA251",
-            800: "#178D46",
-            900: "#0F5C2E",
+            light: "#b773ff",
+            dark: "#532bc4",
+            50: "#f0e6ff",
+            100: "#d6c1fe",
+            200: "#b997fe",
+            300: "#9a69ff",
+            400: "#7f43ff",
+            500: "#5e0dfd",
+            600: "#4f06f7",
+            700: "#3500ef",
+            800: "#0000ea",
+            900: "#0000dc",
+            contrastText: "rgba(0, 0, 0, 0.87)"
+        },
+        barsLight: {
+            main: "#A379FC",
+            light: "#d7a9ff",
+            dark: "#704cc8",
+            50: "#f1e8fe",
+            100: "#d8c7fc",
+            200: "#bea1fc",
+            300: "#a279fc",
+            400: "#8b59fa",
+            500: "#733af1",
+            600: "#6735ea",
+            700: "#552de0",
+            800: "#4527d8",
+            900: "#251aca",
             contrastText: "rgba(0, 0, 0, 0.87)"
         }
     },
@@ -124,6 +140,7 @@ function changeTheme(themeName) {
     GLOBAL_STYLE.palette.mode = themeName;
     GLOBAL_STYLE.palette.primary.main = themeName === "dark" ? "#ffffff" : "#000000";
     GLOBAL_STYLE.palette.text.secondary = themeName === "dark" ? "#ffffffb3" : "#151515b3";
+    GLOBAL_STYLE.palette.background.paper = themeName === "dark" ? "#202020" : "#f4f4f4";
     GLOBAL_STYLE.components.MuiIconButton.styleOverrides.root = {
         '&:hover': {
             backgroundColor: themeName === "dark" ? "rgba(255, 255, 255, 0.08)" :  "rgba(0, 0, 0, 0.08)"

@@ -23,7 +23,7 @@
 }
 
 ::selection {
-  background-color: rgba(127, 67, 255, 0.938);
+  background-color: #7F43FF;
 }
 
 @media only screen and (min-width:600px) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './utils/consoleHelper';
 import {responsiveFontSizes, ThemeProvider} from "@mui/material";
 import {FooterSection} from "./app/containers/footer-section";
 import {MainContentSection} from "./app/containers/main-content-section";
