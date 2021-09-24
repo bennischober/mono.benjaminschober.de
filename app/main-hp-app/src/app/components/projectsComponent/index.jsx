@@ -2,6 +2,7 @@ import React from "react";
 import {ArticleComponent} from "../articleComponent";
 import {Grid} from "@mui/material";
 import {VideoModal} from "../modalComponents/videoModal";
+import {AutoplayGallery} from "../imageGallery/autoplayGallery";
 
 const CreateModal = (data) => {
     switch (data?.modal.content.type) {
@@ -41,6 +42,7 @@ const CreateImageGallery = () => {
 export function ProjectsComponent(props) {
     const data = props.data;
     const description = data.description;
+    console.log(data);
 
     let modal = CreateModal(data);
     let gallery = CreateImageGallery();
@@ -50,6 +52,7 @@ export function ProjectsComponent(props) {
             <ArticleComponent head={description.headline} sub={description.subHeadline} text={description.description} align={{text: {float: "left", textAlign: "start", marginTop: "0.5em"}}}/>
             {gallery}
             {modal}
+            <AutoplayGallery data={data.images.data} path={data.images.rootPath}/>
         </Grid>
     );
 }
