@@ -13,6 +13,7 @@ export function MenuItems(props) {
     }
 
     return menuData.map((item) =>
-        <MenuItem selected={activeItem === item.key} disabled={activeItem === item.key} id={item.key} key={item.key} onClick={() => handleOnClick(item.key)}>{item.language}</MenuItem>
+        <MenuItem selected={activeItem === item.key} disabled={activeItem === item.key} id={item.key} key={item.key}
+                  onClick={() => handleOnClick(item.key)}>{item.language}</MenuItem>
     );
 }
