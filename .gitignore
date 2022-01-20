@@ -6,6 +6,7 @@
 *.mp4
 *.jpg
 *.png
+*.txt
 
 # ignore node_modules folders
 node_modules/
