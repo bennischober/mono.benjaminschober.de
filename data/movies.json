@@ -1,0 +1,34 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "category": "other",
+            "name": "Assassins Creed",
+            "duration": "01:55:30",
+            "size": 34.5,
+            "codec": "hevc",
+            "bitrate": 40.77,
+            "resolution": "3840x2160"
+        },
+        {
+            "id": 2,
+            "category": "other",
+            "name": "Blootshot",
+            "duration": "01:49:19",
+            "size": 43.48,
+            "codec": "hevc",
+            "bitrate": 50.3,
+            "resolution": "3840x2160"
+        },
+        {
+            "id": 3,
+            "category": "other",
+            "name": "Dune",
+            "duration": "02:35:26",
+            "size": 75.13,
+            "codec": "hevc",
+            "bitrate": 65.99,
+            "resolution": "3840x2160"
+        }
+    ]
+}
