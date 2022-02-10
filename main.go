@@ -49,7 +49,7 @@ func getMovieById(c *gin.Context) {
 
 	movies := readMovies()
 
-	for _, a := range movies.Movies {
+	for _, a := range movies {
 		if strconv.Itoa(a.ID) == id {
 			c.IndentedJSON(http.StatusOK, a)
 			return
@@ -59,7 +59,7 @@ func getMovieById(c *gin.Context) {
 	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "movie not found"})
 }
 
-func readMovies() Movies {
+func readMovies() []Movie {
 	// Open our jsonFile
 	jsonFile, err := os.Open("./data/movies.json")
 	// if we os.Open returns an error then handle it
@@ -78,13 +78,13 @@ func readMovies() Movies {
 	var movies Movies
 	json.Unmarshal(byteValue, &movies)
 
-	return movies
+	return movies.Movies
 }
 
 func main() {
 	router := gin.Default()
-	router.GET("/albums", getMovies)
-	router.GET("/albums/:id", getMovieById)
+	router.GET("/movies", getMovies)
+	router.GET("/movies/:id", getMovieById)
 
 	router.Run("localhost:8080")
 
