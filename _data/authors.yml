@@ -1,0 +1,15 @@
+# /_data/authors.yml
+
+Benjamin Schober:
+  name        : "Benjamin Schober"
+  bio         : "What do you want, jewels? I am a very extravagant man."
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:bennischober001@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.benjaminschober.de"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://www.github.com/bennischober"
