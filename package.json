@@ -9,9 +9,32 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^4.1.5",
+    "@mantine/dates": "^4.1.5",
+    "@mantine/dropzone": "^4.1.5",
+    "@mantine/form": "^4.1.5",
+    "@mantine/hooks": "^4.1.5",
+    "@mantine/modals": "^4.1.5",
+    "@mantine/next": "^4.1.5",
+    "@mantine/notifications": "^4.1.5",
+    "@mantine/prism": "^4.1.5",
+    "@mantine/rte": "^4.1.5",
+    "@mantine/spotlight": "^4.1.5",
+    "@reduxjs/toolkit": "^1.8.1",
+    "dayjs": "^1.11.1",
     "next": "12.1.5",
+    "next-connect": "^0.12.2",
+    "openid-client": "^5.1.5",
+    "passport": "^0.5.2",
+    "passport-auth0": "^1.4.2",
+    "passport-google-oauth": "^2.0.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-oauth2": "^1.6.1",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-query": "^3.38.0",
+    "react-redux": "^8.0.1"
   },
   "devDependencies": {
     "@types/node": "17.0.27",
