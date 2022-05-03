@@ -8,7 +8,7 @@ import {
     ColorScheme,
 } from "@mantine/core";
 import { NavbarNested } from "../components/layouts/Navbar";
-import { getLocalStorageItem, setLocalStorageItem } from "../utils/localStorageHandles";
+import { getLocalStorageItem, setLocalStorageItem } from "../utils/browserHandles";
 
 export default function App(props: AppProps) {
     const { Component, pageProps } = props;
