@@ -1,20 +1,28 @@
-import { Container, Grid } from "@mantine/core";
+import { useState } from "react";
+import { Container, Grid, NumberInput } from "@mantine/core";
 import Head from "next/head";
-import React, { useRef } from "react";
-import { ControlledNumberInput } from "../../components/input/ControlledNumberInput";
-import { Calculators } from "../../types/enums";
-import { ControlledNumberInputRef } from "../../types/refs";
+import { getREMFromPX, getPXFromREM } from "../../utils/calculations";
 
 export default function PXToRem() {
-    const childFunc = useRef<ControlledNumberInputRef>();
+    const [pxValue, setPxValue] = useState(0);
+    const [remValue, setRemValue] = useState(0);
+    const [fontValue, setFontValue] = useState(16);
 
-    const valueSync = (value: number, type: Calculators) => {
-        console.log(value, type);
-        if(childFunc.current) {
-            console.log("childFunc.current", childFunc.current, value);
-            childFunc.current.changeValue(value);
-        }
+    const handlePXChange = (value: number) => {
+        setPxValue(value);
+        setRemValue(getREMFromPX(value, fontValue));
     };
+
+    const handleREMChange = (value: number) => {
+        setPxValue(getPXFromREM(value, fontValue));
+        setRemValue(value);
+    };
+
+    const handleFontChange = (value: number) => {
+        setFontValue(value);
+        // update REM value
+        setRemValue(getREMFromPX(pxValue, value));
+    }
 
     return (
         <>
@@ -31,19 +39,41 @@ export default function PXToRem() {
             <Container>
                 <Grid>
                     <Grid.Col span={4}>
-                        <ControlledNumberInput
-                            onChange={valueSync}
-                            type={Calculators.PX}
-                            //ref={childFunc} // does not work
+                        <NumberInput
+                            // hideControls
+                            size="xl"
+                            label="Pixels"
+                            aria-label="Pixel value input"
+                            value={pxValue}
+                            onChange={(val: number) => handlePXChange(val)}
                         />
                     </Grid.Col>
-                    <Grid.Col span={4} style={{ textAlign: "center" }}>
-                        =
-                    </Grid.Col>
+                    <Grid.Col
+                        span={4}
+                        style={{ textAlign: "center" }}
+                    ></Grid.Col>
                     <Grid.Col span={4}>
-                        <ControlledNumberInput
-                            onChange={valueSync}
-                            type={Calculators.REM}
+                        <NumberInput
+                            // hideControls
+                            size="xl"
+                            precision={2}
+                            label="REM"
+                            aria-label="REM value input"
+                            value={remValue}
+                            onChange={(val: number) => handleREMChange(val)}
+                        />
+                    </Grid.Col>
+                </Grid>
+                <Grid>
+                    <Grid.Col span={6}>
+                        Calculation is based on 16px as base. Change
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                        <NumberInput
+                            size="xs"
+                            label="Font Size"
+                            value={fontValue}
+                            onChange={(val: number) => handleFontChange(val)}
                         />
                     </Grid.Col>
                 </Grid>
