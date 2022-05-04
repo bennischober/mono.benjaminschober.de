@@ -7,7 +7,7 @@ import {
     ColorSchemeProvider,
     ColorScheme,
 } from "@mantine/core";
-import { NavbarNested } from "../components/layouts/Navbar";
+import { AppContainer } from "../components/layouts/AppContainer";
 import { getLocalStorageItem, setLocalStorageItem } from "../utils/browserHandles";
 
 export default function App(props: AppProps) {
@@ -52,9 +52,9 @@ export default function App(props: AppProps) {
                         colorScheme: colorScheme,
                     }}
                 >
-                    <NavbarNested>
+                    <AppContainer>
                         <Component {...pageProps} />
-                    </NavbarNested>
+                    </AppContainer>
                 </MantineProvider>
             </ColorSchemeProvider>
         </>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
     ActionIcon,
     AppShell,
-    Navbar,
     Header,
     Text,
     MediaQuery,
@@ -11,11 +10,11 @@ import {
     useMantineTheme,
 } from "@mantine/core";
 import { Footer } from "../Footer";
-import Link from "next/link";
-import { NavbarNestedProps } from "../../../types/interfaces";
+import { AppContainerProps } from "../../../types/interfaces";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { CompleteNavbar } from "../Navbar/navbarItems";
 
-export function NavbarNested(props: NavbarNestedProps) {
+export function AppContainer(props: AppContainerProps) {
     const theme = useMantineTheme();
     const [opened, setOpened] = useState(false);
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -34,15 +33,7 @@ export function NavbarNested(props: NavbarNestedProps) {
             asideOffsetBreakpoint="sm"
             fixed
             navbar={
-                <Navbar
-                    p="md"
-                    hiddenBreakpoint="sm"
-                    hidden={!opened}
-                    width={{ sm: 200, lg: 300 }}
-                >
-                    <Link href="/">Home</Link>
-                    <Link href="/pxtorem">GoTo PXToREM</Link>
-                </Navbar>
+                <CompleteNavbar />
             }
             header={
                 <Header height={70} p="md">

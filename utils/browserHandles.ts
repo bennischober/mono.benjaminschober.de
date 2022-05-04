@@ -1,3 +1,6 @@
+
+/**---- STORAGE ----**/
+
 export function getLocalStorageItem(key: string) {
     return localStorage.getItem(key);
 }
@@ -28,4 +31,13 @@ export function getLocalStorageEntries() {
 
 export function getLocalStorageSize() {
     return localStorage.length;
+}
+
+/**---- HEAD ----**/
+export function updateHTMLLanguage(language: string) {
+    document.documentElement.setAttribute("lang", language);
+}
+
+export function updateHeadTitle(title: string) {
+    document.title = title;
 }
