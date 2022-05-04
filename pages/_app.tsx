@@ -7,20 +7,21 @@ import {
     ColorSchemeProvider,
     ColorScheme,
 } from "@mantine/core";
-import { AppContainer } from "../components/layouts/AppContainer";
-import { getLocalStorageItem, setLocalStorageItem } from "../utils/browserHandles";
+import { AppContainer } from "../components/AppContainer";
+import {
+    getLocalStorageItem,
+    setLocalStorageItem,
+} from "../utils/browserHandles";
 
-export default function App(props: AppProps) {
-    const { Component, pageProps } = props;
-
-
-    const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+export default function App({ Component, pageProps }: AppProps) {
+    // cant use use-local-storage, because off ssr - client and server content will be invalid!
+    // could also be handled with a cookie!
+    const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
     const toggleColorScheme = (value?: ColorScheme) => {
-        const theme : string = value || (colorScheme === "dark" ? "light" : "dark");
         setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
-        setLocalStorageItem("theme", theme);
-    }
-        
+        setLocalStorageItem("theme", value as string || (colorScheme === "dark" ? "light" : "dark"));
+    };
+
     useEffect(() => {
         const storedTheme = getLocalStorageItem("theme");
         if (storedTheme) handleTheme(storedTheme as ColorScheme);
@@ -29,7 +30,6 @@ export default function App(props: AppProps) {
     const handleTheme = (theme: ColorScheme) => {
         setColorScheme(theme);
     };
-    
 
     return (
         <>

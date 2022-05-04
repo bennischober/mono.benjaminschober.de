@@ -1,9 +1,11 @@
 import React from "react";
 import { Navbar, Group, Code, ScrollArea, createStyles } from "@mantine/core";
-import { LinksGroup } from "./navbarLinks";
-import { MdDashboard } from "react-icons/md";
+import { LinksGroup } from "../NavbarLinks";
+import { MdDashboard, MdMovie, MdChecklist } from "react-icons/md";
 import { RiNumbersFill } from "react-icons/ri";
-import { getBackgroundColor } from "../../../utils/theme";
+import { SiPlotly } from "react-icons/si";
+import { CompleteNavbarProps } from "../../types/interfaces";
+import { getBackgroundColor } from "../../utils/appHandles";
 
 const mockdata = [
     { label: "Dashboard", icon: MdDashboard, link: "/" },
@@ -12,11 +14,29 @@ const mockdata = [
         icon: RiNumbersFill,
         links: [
             { label: "PX to REM", link: "/pxtorem" },
-            { label: "Forecasts", link: "/" },
-            { label: "Outlook", link: "/" },
-            { label: "Real time", link: "/" },
+            { label: "Aspect Ratio", link: "/aspect-ratio" },
+            { label: "SSQ", link: "/" },
+            { label: "SUS", link: "/" },
+            { label: "Bootstrapping", link: "/" },
         ],
     },
+    {
+        label: "Plotting",
+        icon: SiPlotly,
+        link: "/plotting",
+    },
+    {
+        label: "ToDo",
+        icon: MdChecklist,
+        link: "/todo",
+    },
+    {
+        label: "Movies",
+        icon: MdMovie,
+        links: [
+            { label: "Dashboard", link: "movies/dashboard" },
+        ],
+    }
 ];
 
 const useStyles = createStyles((theme) => ({
@@ -59,17 +79,22 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-export function CompleteNavbar() {
+export function CompleteNavbar(props: CompleteNavbarProps) {
     const { classes } = useStyles();
     const links = mockdata.map((item) => (
         <LinksGroup {...item} key={item.label} />
     ));
 
     return (
-        <Navbar width={{ sm: 300 }} p="md" className={classes.navbar}>
+        <Navbar
+            width={{ sm: 300 }}
+            p="md"
+            className={classes.navbar}
+            hidden={props.hidden}
+        >
             <Navbar.Section className={classes.header}>
                 <Group position="apart">
-                    <Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
+                    <Code sx={{ fontWeight: 700 }}>v0.1.0</Code>
                 </Group>
             </Navbar.Section>
 

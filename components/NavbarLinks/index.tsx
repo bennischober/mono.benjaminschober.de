@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import Link from "next/link";
-import {LinksGroupProps} from "../../../types/interfaces";
+import {LinksGroupProps} from "../../types/interfaces";
 
 const useStyles = createStyles((theme) => ({
     control: {

@@ -8,33 +8,38 @@ import {
     Burger,
     useMantineColorScheme,
     useMantineTheme,
+    Tooltip,
 } from "@mantine/core";
+import { CompleteNavbar } from "../Navbar";
 import { Footer } from "../Footer";
-import { AppContainerProps } from "../../../types/interfaces";
+import { AppContainerProps } from "../../types/interfaces";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
-import { CompleteNavbar } from "../Navbar/navbarItems";
+import { getBackgroundColor } from "../../utils/appHandles";
 
 export function AppContainer(props: AppContainerProps) {
-    const theme = useMantineTheme();
     const [opened, setOpened] = useState(false);
+    const [navState, setNavState] = useState(true);
+
+    const theme = useMantineTheme();
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+
+    const handleNavigation = (opened: boolean) => {
+        setOpened(opened);
+        // note: needs fallback when changing back to desktop. if mobile closed navbar, desktop navbar is still closed!
+        setNavState(!opened);
+    };
 
     return (
         <AppShell
             styles={{
                 main: {
-                    background:
-                        theme.colorScheme === "dark"
-                            ? theme.colors.dark[8]
-                            : theme.colors.gray[0],
+                    background: getBackgroundColor(theme),
                 },
             }}
             navbarOffsetBreakpoint="sm"
             asideOffsetBreakpoint="sm"
             fixed
-            navbar={
-                <CompleteNavbar />
-            }
+            navbar={<CompleteNavbar hidden={navState} />}
             header={
                 <Header height={70} p="md">
                     <div
@@ -50,7 +55,7 @@ export function AppContainer(props: AppContainerProps) {
                         >
                             <Burger
                                 opened={opened}
-                                onClick={() => setOpened((o) => !o)}
+                                onClick={() => handleNavigation(!opened)}
                                 size="sm"
                                 color={theme.colors.gray[6]}
                                 mr="xl"
@@ -58,17 +63,22 @@ export function AppContainer(props: AppContainerProps) {
                         </MediaQuery>
 
                         <Text>Application header</Text>
-                        <ActionIcon
-                            variant="default"
-                            onClick={() => toggleColorScheme()}
-                            size={30}
+                        <Tooltip
+                            label={theme?.colorScheme === "dark" ? "Light Mode" : "Dark Mode"}
+                            openDelay={500}
                         >
-                            {colorScheme === "dark" ? (
-                                <MdLightMode />
-                            ) : (
-                                <MdDarkMode />
-                            )}
-                        </ActionIcon>
+                            <ActionIcon
+                                variant="default"
+                                onClick={() => toggleColorScheme()}
+                                size={30}
+                            >
+                                {colorScheme === "dark" ? (
+                                    <MdLightMode />
+                                ) : (
+                                    <MdDarkMode />
+                                )}
+                            </ActionIcon>
+                        </Tooltip>
                     </div>
                 </Header>
             }

@@ -3,7 +3,7 @@ import { Container, Grid, NumberInput } from "@mantine/core";
 import Head from "next/head";
 import { getREMFromPX, getPXFromREM } from "../../utils/calculations";
 
-export default function PXToRem() {
+export default function PXToRemPage() {
     const [pxValue, setPxValue] = useState(0);
     const [remValue, setRemValue] = useState(0);
     const [fontValue, setFontValue] = useState(16);
@@ -22,7 +22,7 @@ export default function PXToRem() {
         setFontValue(value);
         // update REM value
         setRemValue(getREMFromPX(pxValue, value));
-    }
+    };
 
     return (
         <>
@@ -37,13 +37,15 @@ export default function PXToRem() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Container>
+                <h1>Pixel to REM Calculator</h1>
                 <Grid>
                     <Grid.Col span={4}>
                         <NumberInput
                             // hideControls
                             size="xl"
-                            label="Pixels"
+                            label="Pixel"
                             aria-label="Pixel value input"
+                            min={0}
                             value={pxValue}
                             onChange={(val: number) => handlePXChange(val)}
                         />
@@ -59,6 +61,7 @@ export default function PXToRem() {
                             precision={2}
                             label="REM"
                             aria-label="REM value input"
+                            min={0}
                             value={remValue}
                             onChange={(val: number) => handleREMChange(val)}
                         />
@@ -72,6 +75,7 @@ export default function PXToRem() {
                         <NumberInput
                             size="xs"
                             label="Font Size"
+                            min={0}
                             value={fontValue}
                             onChange={(val: number) => handleFontChange(val)}
                         />
