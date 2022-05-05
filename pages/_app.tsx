@@ -8,18 +8,22 @@ import {
     ColorScheme,
 } from "@mantine/core";
 import { AppContainer } from "../components/AppContainer";
+import { SessionProvider } from "next-auth/react";
 import {
     getLocalStorageItem,
     setLocalStorageItem,
 } from "../utils/browserHandles";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, ...appPropps }: AppProps) {
     // cant use use-local-storage, because off ssr - client and server content will be invalid!
     // could also be handled with a cookie!
     const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
     const toggleColorScheme = (value?: ColorScheme) => {
         setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
-        setLocalStorageItem("theme", value as string || (colorScheme === "dark" ? "light" : "dark"));
+        setLocalStorageItem(
+            "theme",
+            (value as string) || (colorScheme === "dark" ? "light" : "dark")
+        );
     };
 
     useEffect(() => {
@@ -31,6 +35,8 @@ export default function App({ Component, pageProps }: AppProps) {
         setColorScheme(theme);
     };
 
+    console.log("base templage", appPropps.router.pathname);
+
     return (
         <>
             <Head>
@@ -41,22 +47,24 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
             </Head>
 
-            <ColorSchemeProvider
-                colorScheme={colorScheme}
-                toggleColorScheme={toggleColorScheme}
-            >
-                <MantineProvider
-                    withGlobalStyles
-                    withNormalizeCSS
-                    theme={{
-                        colorScheme: colorScheme,
-                    }}
+            <SessionProvider session={pageProps.session} refetchInterval={0}>
+                <ColorSchemeProvider
+                    colorScheme={colorScheme}
+                    toggleColorScheme={toggleColorScheme}
                 >
-                    <AppContainer>
-                        <Component {...pageProps} />
-                    </AppContainer>
-                </MantineProvider>
-            </ColorSchemeProvider>
+                    <MantineProvider
+                        withGlobalStyles
+                        withNormalizeCSS
+                        theme={{
+                            colorScheme: colorScheme,
+                        }}
+                    >
+                        <AppContainer>
+                            <Component {...pageProps} />
+                        </AppContainer>
+                    </MantineProvider>
+                </ColorSchemeProvider>
+            </SessionProvider>
         </>
     );
 }
