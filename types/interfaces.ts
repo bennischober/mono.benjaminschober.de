@@ -19,6 +19,13 @@ export interface LinksGroupProps {
     links?: { label: string; link: string }[];
 }
 
+export interface UserButtonProps {
+    image?: string;
+    name: string;
+    email: string;
+    color?: string;
+}
+
 
 /**--- CALCULATIONS ---**/
 

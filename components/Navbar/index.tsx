@@ -6,6 +6,7 @@ import { RiNumbersFill } from "react-icons/ri";
 import { SiPlotly } from "react-icons/si";
 import { CompleteNavbarProps } from "../../types/interfaces";
 import { getBackgroundColor } from "../../utils/appHandles";
+import { UserButton } from "../UserButton";
 
 const mockdata = [
     { label: "Dashboard", icon: MdDashboard, link: "/" },
@@ -33,10 +34,8 @@ const mockdata = [
     {
         label: "Movies",
         icon: MdMovie,
-        links: [
-            { label: "Dashboard", link: "movies/dashboard" },
-        ],
-    }
+        links: [{ label: "Dashboard", link: "movies/dashboard" }],
+    },
 ];
 
 const useStyles = createStyles((theme) => ({
@@ -104,6 +103,13 @@ export function CompleteNavbar(props: CompleteNavbarProps) {
                 component={ScrollArea}
             >
                 <div className={classes.linksInner}>{links}</div>
+            </Navbar.Section>
+
+            <Navbar.Section className={classes.footer}>
+                <UserButton      
+                    name="Ann Nullpointer"
+                    email="anullpointer@yahoo.com"
+                />
             </Navbar.Section>
         </Navbar>
     );

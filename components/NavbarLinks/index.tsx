@@ -11,6 +11,7 @@ import {
 import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import Link from "next/link";
 import {LinksGroupProps} from "../../types/interfaces";
+import { getMenuButtonHover } from "../../utils/appHandles";
 
 const useStyles = createStyles((theme) => ({
     control: {
@@ -23,10 +24,7 @@ const useStyles = createStyles((theme) => ({
         fontSize: theme.fontSizes.sm,
 
         "&:hover": {
-            backgroundColor:
-                theme.colorScheme === "dark"
-                    ? theme.colors.dark[7]
-                    : theme.colors.gray[0],
+            backgroundColor: getMenuButtonHover(theme),
             color: theme.colorScheme === "dark" ? theme.white : theme.black,
         },
     },
