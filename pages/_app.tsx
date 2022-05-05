@@ -35,7 +35,16 @@ export default function App({ Component, pageProps, ...appPropps }: AppProps) {
         setColorScheme(theme);
     };
 
-    console.log("base templage", appPropps.router.pathname);
+    const specialPage: string[] = ["/login", "/register", "/forgot"];
+    const getPageContent = () => {
+        return specialPage.includes(appPropps.router.pathname) ? (
+            <Component {...pageProps} />
+        ) : (
+            <AppContainer>
+                <Component {...pageProps} />
+            </AppContainer>
+        );
+    };
 
     return (
         <>
@@ -59,9 +68,7 @@ export default function App({ Component, pageProps, ...appPropps }: AppProps) {
                             colorScheme: colorScheme,
                         }}
                     >
-                        <AppContainer>
-                            <Component {...pageProps} />
-                        </AppContainer>
+                        {getPageContent()}
                     </MantineProvider>
                 </ColorSchemeProvider>
             </SessionProvider>
