@@ -13,8 +13,11 @@ export function getMenuButtonHover(theme: MantineTheme) {
 }
 
 /** --- ROUTING HANDLE --- **/
-export function getLastRoute(router: NextRouter) {
-    
+export function getLastRoute(router: NextRouter): string {
+    if (Array.isArray(router.query.from)) {
+        return router.query.from[router.query.from.length - 1];
+    }
+    return router.query.from === undefined ? "/" : router.query.from;
 }
 
 

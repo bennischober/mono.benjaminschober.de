@@ -35,7 +35,7 @@ export default function App({ Component, pageProps, ...appPropps }: AppProps) {
         setColorScheme(theme);
     };
 
-    const specialPage: string[] = ["/login", "/register", "/forgot"];
+    const specialPage: string[] = ["/login", "/register", "/forgot", "/404", "/500"];
     const getPageContent = () => {
         return specialPage.includes(appPropps.router.pathname) ? (
             <Component {...pageProps} />

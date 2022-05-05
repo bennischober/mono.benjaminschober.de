@@ -9,6 +9,7 @@ import {
 import { MdChevronRight } from "react-icons/md";
 import { getMenuButtonHover, getNameInitials } from "../../utils/appHandles";
 import { UserButtonProps } from "../../types/interfaces";
+import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
     user: {
@@ -26,12 +27,13 @@ const useStyles = createStyles((theme) => ({
 
 export function UserButton({ image, name, email, color }: UserButtonProps) {
     const { classes } = useStyles();
+    const router = useRouter();
 
     const iniitalsFallback = getNameInitials(name);
     if (!color) color = "blue";
 
     return (
-        <UnstyledButton className={classes.user}>
+        <UnstyledButton className={classes.user} onClick={() => router.push("/user/dashboard")}>
             <Group>
                 <Avatar src={image} alt={name} color={color} radius="xl">
                     {iniitalsFallback}

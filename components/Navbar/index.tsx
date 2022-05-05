@@ -7,6 +7,7 @@ import { SiPlotly } from "react-icons/si";
 import { CompleteNavbarProps } from "../../types/interfaces";
 import { getBackgroundColor } from "../../utils/appHandles";
 import { UserButton } from "../UserButton";
+import { useSession } from "next-auth/react";
 
 const mockdata = [
     { label: "Dashboard", icon: MdDashboard, link: "/" },
@@ -44,19 +45,6 @@ const useStyles = createStyles((theme) => ({
         paddingBottom: 0,
     },
 
-    header: {
-        padding: theme.spacing.md,
-        paddingTop: 0,
-        marginLeft: -theme.spacing.md,
-        marginRight: -theme.spacing.md,
-        color: theme.colorScheme === "dark" ? theme.white : theme.black,
-        borderBottom: `1px solid ${
-            theme.colorScheme === "dark"
-                ? theme.colors.dark[4]
-                : theme.colors.gray[3]
-        }`,
-    },
-
     links: {
         marginLeft: -theme.spacing.md,
         marginRight: -theme.spacing.md,
@@ -84,19 +72,26 @@ export function CompleteNavbar(props: CompleteNavbarProps) {
         <LinksGroup {...item} key={item.label} />
     ));
 
+    const { data: session, status } = useSession();
+
+    let name = "Not Logged In";
+    if (session?.user?.name) {
+        name = session.user.name;
+    }
+
+    let email = "no@email.com";
+    if (session?.user?.email) {
+        email = session.user.email;
+    }
+
     return (
         <Navbar
             width={{ sm: 300 }}
             p="md"
             className={classes.navbar}
             hidden={props.hidden}
+            style={{ paddingBottom: 0 }}
         >
-            <Navbar.Section className={classes.header}>
-                <Group position="apart">
-                    <Code sx={{ fontWeight: 700 }}>v0.1.0</Code>
-                </Group>
-            </Navbar.Section>
-
             <Navbar.Section
                 grow
                 className={classes.links}
@@ -106,10 +101,7 @@ export function CompleteNavbar(props: CompleteNavbarProps) {
             </Navbar.Section>
 
             <Navbar.Section className={classes.footer}>
-                <UserButton      
-                    name="Ann Nullpointer"
-                    email="anullpointer@yahoo.com"
-                />
+                <UserButton name={name} email={email} />
             </Navbar.Section>
         </Navbar>
     );

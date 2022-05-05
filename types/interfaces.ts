@@ -1,4 +1,4 @@
-import React from "react";
+import { Session } from "next-auth";
 import { IconBase } from "react-icons";
 
 /** --- COMPONENTS --- **/
@@ -7,8 +7,13 @@ export interface AppContainerProps {
     children: React.ReactNode;
 }
 
+export interface CompleteHeaderProps {
+    handleNavigation: (opened: boolean) => void;
+    opened: boolean;
+}
+
 export interface CompleteNavbarProps {
-    hidden?: boolean
+    hidden?: boolean;
 }
 
 export interface LinksGroupProps {
@@ -26,8 +31,28 @@ export interface UserButtonProps {
     color?: string;
 }
 
+// they might need another name
+interface LoginPageSession extends Session {
+    status: string;
+    id: number
+}
 
-/**--- CALCULATIONS ---**/
+export interface LoginPageProps {
+    session: LoginPageSession;
+}
+
+export interface LoginComponentProps {
+    loginHandler: (username: string, password: string, remember: boolean) => void;
+}
+
+/** --- OTHER --- **/
+export interface LoginFormValues {
+    email: string;
+    password: string;
+    remember: boolean;
+}
+
+/** --- CALCULATIONS --- **/
 
 export interface AspectRatio {
     width: number;
