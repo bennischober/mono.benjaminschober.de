@@ -4,11 +4,9 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { LoginPageProps } from "../../types/interfaces";
 
-
-
-export default function UserDashboardPage({session}: LoginPageProps) {
+export default function UserDashboardPage({ session }: LoginPageProps) {
     const router = useRouter();
-    
+
     useEffect(() => {
         if (router && router.query) {
             handleSession();
@@ -16,14 +14,15 @@ export default function UserDashboardPage({session}: LoginPageProps) {
     }, [router]);
 
     const handleSession = () => {
-        if((session && session.status === "unathorized") || !session) {
-            router.push({pathname: "/login", query: {from: router.pathname}});
+        if ((session && session.status === "unathorized") || !session) {
+            router.push({
+                pathname: "/login",
+                query: { from: router.pathname },
+            });
         }
-    }
+    };
 
-    return(
-        <div>Hi, you are logged in!</div>
-    );
+    return <div>Hi, you are logged in!</div>;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

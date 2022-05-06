@@ -38,10 +38,7 @@ export default function LoginComponent({ loginHandler }: LoginComponentProps) {
             <Text color="dimmed" size="sm" align="center" mt={5}>
                 Do not have an account yet?{" "}
                 <Link href="/register">
-                    <Anchor<"a">
-                        href="/register"
-                        size="sm"
-                    >
+                    <Anchor<"a"> href="/register" size="sm">
                         Create account
                     </Anchor>
                 </Link>

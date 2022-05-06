@@ -42,7 +42,7 @@ export default function LoginPage({ session }: LoginPageProps) {
             router.push(route);
             return;
         }
-        if(session && session.status === "authorized") router.push("/");
+        if (session && session.status === "authorized") router.push("/");
     };
 
     // append head with: | {host}

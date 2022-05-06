@@ -33,7 +33,10 @@ export function UserButton({ image, name, email, color }: UserButtonProps) {
     if (!color) color = "blue";
 
     return (
-        <UnstyledButton className={classes.user} onClick={() => router.push("/user/dashboard")}>
+        <UnstyledButton
+            className={classes.user}
+            onClick={() => router.push("/user/dashboard")}
+        >
             <Group>
                 <Avatar src={image} alt={name} color={color} radius="xl">
                     {iniitalsFallback}
