@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Grid, NumberInput } from "@mantine/core";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import { getAspectRatio, getResolution } from "../../utils/calculations";
+import { getAspectRatio, getResolution } from "../../../utils/calculations";
 
 interface Props {
     host?: string;

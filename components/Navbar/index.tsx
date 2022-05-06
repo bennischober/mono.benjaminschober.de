@@ -21,8 +21,8 @@ const mockdata = [
         label: "Calculators",
         icon: RiNumbersFill,
         links: [
-            { label: "PX to REM", link: "/pxtorem" },
-            { label: "Aspect Ratio", link: "/aspect-ratio" },
+            { label: "PX to REM", link: "/calculators/pxtorem" },
+            { label: "Aspect Ratio", link: "/calculators/aspect-ratio" },
             { label: "SSQ", link: "/" },
             { label: "SUS", link: "/" },
             { label: "Bootstrapping", link: "/" },

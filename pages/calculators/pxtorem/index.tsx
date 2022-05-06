@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Grid, NumberInput } from "@mantine/core";
 import Head from "next/head";
-import { getREMFromPX, getPXFromREM } from "../../utils/calculations";
+import { getREMFromPX, getPXFromREM } from "../../../utils/calculations";
 
 export default function PXToRemPage() {
     const [pxValue, setPxValue] = useState(0);

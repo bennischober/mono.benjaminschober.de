@@ -61,7 +61,7 @@ export function CompleteHeader({
     };
 
     const handleLogin = () => {
-        router.push("/login");
+        router.push("/auth/login");
     };
 
     return (

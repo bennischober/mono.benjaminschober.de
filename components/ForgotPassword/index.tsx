@@ -35,8 +35,6 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-// ToDo: Add functionality: If on login-page and forgot-password is clicked, show this component, else show login component
-
 export interface ForgotPasswordProps {
     forgotPassword: () => void;
 }

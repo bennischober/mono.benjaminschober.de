@@ -6,10 +6,10 @@ import Head from "next/head";
 import { signIn, getSession } from "next-auth/react";
 import { Container, Title, Text, Anchor } from "@mantine/core";
 import { useDocumentTitle, useToggle } from "@mantine/hooks";
-import LoginComponent from "../components/Login";
-import { LoginPageProps } from "../types/interfaces";
-import { getLastRoute } from "../utils/appHandles";
-import { ForgotPassword } from "../components/ForgotPassword";
+import LoginComponent from "../../../components/Login";
+import { LoginPageProps } from "../../../types/interfaces";
+import { getLastRoute } from "../../../utils/appHandles";
+import { ForgotPassword } from "../../../components/ForgotPassword";
 
 export default function LoginPage({ session }: LoginPageProps) {
     console.log(session);
@@ -63,7 +63,6 @@ export default function LoginPage({ session }: LoginPageProps) {
         setIsPasswordForgotten();
     };
 
-    // append head with: | {host}
     return (
         <>
             <Head>

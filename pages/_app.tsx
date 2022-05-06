@@ -36,9 +36,8 @@ export default function App({ Component, pageProps, ...appPropps }: AppProps) {
     };
 
     const specialPage: string[] = [
-        "/login",
-        "/register",
-        "/forgot",
+        "/auth/login",
+        "/auth/register",
         "/404",
         "/500",
     ];
