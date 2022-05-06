@@ -9,12 +9,16 @@ import {
     Group,
     Button,
 } from "@mantine/core";
+import { randomId } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
 import { MdAlternateEmail, MdLockOutline } from "react-icons/md";
 import { LoginComponentProps, LoginFormValues } from "../../types/interfaces";
 import Link from "next/link";
 
-export default function LoginComponent({ loginHandler }: LoginComponentProps) {
+export default function LoginComponent({
+    loginHandler,
+    forgotPassword,
+}: LoginComponentProps) {
     const form = useForm<LoginFormValues>({
         initialValues: {
             email: "",
@@ -29,6 +33,8 @@ export default function LoginComponent({ loginHandler }: LoginComponentProps) {
                     : "Password must be at least 6 characters",
         }),
     });
+
+    const emailID = randomId();
 
     // Rember me checkbox
     // https://github.com/nextauthjs/next-auth/issues/974
@@ -58,6 +64,7 @@ export default function LoginComponent({ loginHandler }: LoginComponentProps) {
                         label="Email"
                         placeholder="email@domain.com"
                         icon={<MdAlternateEmail />}
+                        id="mantine-tzcdl80cn"
                         {...form.getInputProps("email")}
                         required
                     />
@@ -66,21 +73,19 @@ export default function LoginComponent({ loginHandler }: LoginComponentProps) {
                         placeholder="Your password"
                         icon={<MdLockOutline />}
                         mt="md"
+                        id="mantine-t51ia2aie"
                         {...form.getInputProps("password")}
                         required
                     />
                     <Group position="apart" mt="md">
                         <Checkbox
                             label="Remember me"
+                            id="mantine-00vo2p68i"
                             {...form.getInputProps("remember", {
                                 type: "checkbox",
                             })}
                         />
-                        <Anchor<"a">
-                            onClick={(event) => event.preventDefault()}
-                            href="#"
-                            size="sm"
-                        >
+                        <Anchor<"a"> onClick={() => forgotPassword()} size="sm">
                             Forgot password?
                         </Anchor>
                     </Group>

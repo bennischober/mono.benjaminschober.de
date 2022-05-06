@@ -43,6 +43,7 @@ export interface LoginPageProps {
 
 export interface LoginComponentProps {
     loginHandler: (username: string, password: string, remember: boolean) => void;
+    forgotPassword : () => void;
 }
 
 /** --- OTHER --- **/

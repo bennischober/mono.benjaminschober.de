@@ -37,14 +37,15 @@ const useStyles = createStyles((theme) => ({
 
 // ToDo: Add functionality: If on login-page and forgot-password is clicked, show this component, else show login component
 
-export function ForgotPassword() {
+export interface ForgotPasswordProps {
+    forgotPassword: () => void;
+}
+
+export function ForgotPassword({ forgotPassword }: ForgotPasswordProps) {
     const { classes } = useStyles();
 
     return (
         <Container size={460} my={30}>
-            <Title className={classes.title} align="center">
-                Forgot your password?
-            </Title>
             <Text color="dimmed" size="sm" align="center">
                 Enter your email to get a reset link
             </Text>
@@ -57,6 +58,7 @@ export function ForgotPassword() {
                 />
                 <Group position="apart" mt="lg" className={classes.controls}>
                     <Anchor
+                        onClick={() => forgotPassword()}
                         color="dimmed"
                         size="sm"
                         className={classes.control}
