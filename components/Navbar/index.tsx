@@ -1,7 +1,13 @@
 import React from "react";
-import { Navbar, Group, Code, ScrollArea, createStyles } from "@mantine/core";
+import { Navbar, ScrollArea, createStyles } from "@mantine/core";
 import { LinksGroup } from "../NavbarLinks";
-import { MdDashboard, MdMovie, MdChecklist } from "react-icons/md";
+import {
+    MdDashboard,
+    MdMovie,
+    MdChecklist,
+    MdOutlineChangeCircle,
+    MdPictureAsPdf,
+} from "react-icons/md";
 import { RiNumbersFill } from "react-icons/ri";
 import { SiPlotly } from "react-icons/si";
 import { CompleteNavbarProps } from "../../types/interfaces";
@@ -12,7 +18,7 @@ import { useSession } from "next-auth/react";
 const mockdata = [
     { label: "Dashboard", icon: MdDashboard, link: "/" },
     {
-        label: "Calculations",
+        label: "Calculators",
         icon: RiNumbersFill,
         links: [
             { label: "PX to REM", link: "/pxtorem" },
@@ -20,6 +26,26 @@ const mockdata = [
             { label: "SSQ", link: "/" },
             { label: "SUS", link: "/" },
             { label: "Bootstrapping", link: "/" },
+        ],
+    },
+    {
+        label: "Converters",
+        icon: MdOutlineChangeCircle,
+        links: [
+            { label: "JSON to Any", link: "/converters/json-to-any" },
+            { label: "Any to JSON", link: "/converters/any-to-json" },
+            { label: "Any to Any", link: "/converters/any-to-any" },
+        ],
+    },
+    {
+        label: "PDF Utilities",
+        icon: MdPictureAsPdf,
+        links: [
+            { label: "PDF to Image", link: "/pdf/pdf-to-image" },
+            { label: "Image to PDF", link: "/pdf/image-to-pdf" },
+            { label: "Create PDF", link: "/pdf/create-pdf" },
+            { label: "Merge PDFs", link: "/pdf/merge-pdf" },
+            { label: "Split PDF", link: "/pdf/split-pdf" },
         ],
     },
     {
@@ -90,7 +116,7 @@ export function CompleteNavbar(props: CompleteNavbarProps) {
             p="md"
             className={classes.navbar}
             hidden={props.hidden}
-            style={{ paddingBottom: 0 }}
+            style={{ paddingBottom: 0, paddingTop: 0 }}
         >
             <Navbar.Section
                 grow
