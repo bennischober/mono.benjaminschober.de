@@ -22,7 +22,7 @@ export default NextAuth({
 				// status 200 => user exists
 				if (res.status === 200) {
 					return {
-						id: 2,
+						id: user.id,
 						name: user.name,
 						email: user.username,
 						status: "authorized"
@@ -31,7 +31,7 @@ export default NextAuth({
 
 				// Return null if user data could not be retrieved
 				return {
-					id: 0,
+					id: user.id,
 					name: user.name,
 					email: user.username,
 					status: "unauthorized"

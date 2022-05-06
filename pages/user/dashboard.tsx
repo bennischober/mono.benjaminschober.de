@@ -22,7 +22,7 @@ export default function UserDashboardPage({ session }: LoginPageProps) {
         }
     };
 
-    return <div>Hi, you are logged in!</div>;
+    return <div>Hi, you are logged in! Your data: {session.expires}, {session.id}, {session.status}, {session.user?.email}, {session.user?.name}</div>;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
