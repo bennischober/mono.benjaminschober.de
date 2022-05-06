@@ -25,6 +25,11 @@ export async function getMongoConnection() {
         return null;
     });
 
+    // this might need proper error handling
+    // this might need view models for return values
+
+    // for register, consider this: https://coderrocketfuel.com/article/store-passwords-in-mongodb-with-node-js-mongoose-and-bcrypt
+
     cachedClient = client;
     cachedDB = client.connection;
     return {
