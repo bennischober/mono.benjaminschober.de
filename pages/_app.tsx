@@ -7,6 +7,7 @@ import {
     ColorSchemeProvider,
     ColorScheme,
 } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import { AppContainer } from "../components/AppContainer";
 import { SessionProvider } from "next-auth/react";
 import {
@@ -73,7 +74,9 @@ export default function App({ Component, pageProps, ...appPropps }: AppProps) {
                             colorScheme: colorScheme,
                         }}
                     >
-                        {getPageContent()}
+                        <NotificationsProvider>
+                            {getPageContent()}
+                        </NotificationsProvider>
                     </MantineProvider>
                 </ColorSchemeProvider>
             </SessionProvider>

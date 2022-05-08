@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Anchor, Title, Text, Container, LoadingOverlay } from "@mantine/core";
+import { Anchor, Title, Text, Container, LoadingOverlay, Space } from "@mantine/core";
+import { showNotification, cleanNotifications } from "@mantine/notifications";
 import Link from "next/link";
-import { PageTemplate } from "../../../components/PageTemplate";
-import { RegisterComponent } from "../../../components/Register";
-import { RegisterHandleData } from "../../../types/interfaces";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import axios from "axios";
 import bcrypt from "bcryptjs";
+import { PageTemplate } from "../../../components/PageTemplate";
+import { RegisterComponent } from "../../../components/Register";
+import { RegisterHandleData } from "../../../types/interfaces";
 
 export default function RegisterPage() {
     const [visible, setVisible] = useState(false);
@@ -17,6 +18,7 @@ export default function RegisterPage() {
     if (session && session.status === "authorized") {
         router.push("/user/dashboard");
     }
+    
 
     const registerHandler = async (registerData: RegisterHandleData) => {
         // activate loading overlay
@@ -38,7 +40,14 @@ export default function RegisterPage() {
                     // https://mantine.dev/others/notifications/
                     // https://mantine.dev/core/notification/
                     console.error("The email is already in the db.");
-
+                    cleanNotifications();
+                    showNotification({
+                        color: "red",
+                        title: "Email already exists",
+                        message:
+                            "Correct your email or request a new password under login 'forgot password'.",
+                        autoClose: 10000,
+                    });
                     // disable loading overlay
                     setVisible(false);
                 }
@@ -95,6 +104,15 @@ export default function RegisterPage() {
                     <LoadingOverlay visible={visible} />
                     <RegisterComponent registerHandler={registerHandler} />
                 </div>
+                <Space h="xl" />
+                <Text color="dimmed" size="sm" align="center" mt={5}>
+                    Don't want to register?{" "}
+                    <Link href="/">
+                        <Anchor<"a"> size="sm" href="/">
+                            Back to Home
+                        </Anchor>
+                    </Link>
+                </Text>
             </Container>
         </PageTemplate>
     );

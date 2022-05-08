@@ -42,6 +42,8 @@ export interface ForgotPasswordProps {
 export function ForgotPassword({ forgotPassword }: ForgotPasswordProps) {
     const { classes } = useStyles();
 
+    // ToDo: add forgot password logic; create API endpoint and db queries
+
     return (
         <Container size={460} my={30}>
             <Text color="dimmed" size="sm" align="center">

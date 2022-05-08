@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { signIn, getSession } from "next-auth/react";
-import { Container, Title, Text, Anchor } from "@mantine/core";
+import { Container, Title, Text, Anchor, Alert, Space } from "@mantine/core";
 import { useDocumentTitle, useToggle } from "@mantine/hooks";
+import { IoAlertCircleOutline } from "react-icons/io5";
 import LoginComponent from "../../../components/Login";
 import { LoginPageProps } from "../../../types/interfaces";
 import { getLastRoute } from "../../../utils/appHandles";
@@ -93,10 +94,29 @@ export default function LoginPage({ session }: LoginPageProps) {
                     />
                 )}
                 {session?.status === "unauthorized" ? (
-                    <Title>Error on Login</Title>
+                    <>
+                        <Space h="xl" />
+                        <Alert
+                            icon={<IoAlertCircleOutline size={16} />}
+                            title="Wrong credentials!"
+                            color="red"
+                        >
+                            The given credentials are not correct. Please try
+                            again. If you have not yet created an account,
+                            please{" "}
+                            <Link href="/auth/register">
+                                <Anchor<"a"> href="/auth/register" size="sm">
+                                    register
+                                </Anchor>
+                            </Link>{" "}
+                            first.
+                        </Alert>
+                        <Space h="xl" />
+                    </>
                 ) : (
                     <></>
                 )}
+                <Space h="xl" />
                 <Text color="dimmed" size="sm" align="center" mt={5}>
                     Don't want to login?{" "}
                     <Link href="/">
