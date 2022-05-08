@@ -34,8 +34,6 @@ export default function LoginComponent({
         }),
     });
 
-    const emailID = randomId();
-
     // Rember me checkbox
     // https://github.com/nextauthjs/next-auth/issues/974
 
@@ -43,8 +41,8 @@ export default function LoginComponent({
         <>
             <Text color="dimmed" size="sm" align="center" mt={5}>
                 Do not have an account yet?{" "}
-                <Link href="/register">
-                    <Anchor<"a"> href="/register" size="sm">
+                <Link href="/auth/register">
+                    <Anchor<"a"> href="/auth/register" size="sm">
                         Create account
                     </Anchor>
                 </Link>

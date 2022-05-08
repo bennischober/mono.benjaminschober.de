@@ -18,6 +18,7 @@ import {
     MdOutlineLightMode,
     MdLogin,
     MdLogout,
+    MdOutlineSettings,
 } from "react-icons/md";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -127,6 +128,22 @@ export function CompleteHeader({
                                 )}
                             </ActionIcon>
                         </Tooltip>
+                        {session && status && status === "authenticated" ? (
+                            <Tooltip label="Settings" openDelay={500}>
+                                <ActionIcon
+                                    variant="default"
+                                    onClick={() =>
+                                        router.push("/user/settings")
+                                    }
+                                    size={34}
+                                    radius="md"
+                                >
+                                    <MdOutlineSettings size={22} />
+                                </ActionIcon>
+                            </Tooltip>
+                        ) : (
+                            <></>
+                        )}
                         <Tooltip
                             label={session ? "Logout" : "Login"}
                             openDelay={500}

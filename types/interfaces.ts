@@ -3,6 +3,14 @@ import { IconBase } from "react-icons";
 
 /** --- COMPONENTS --- **/
 
+export interface PageTemplateProps {
+    title: string;
+    description?: string;
+    content?: string;
+    favicon?: string;
+    children: React.ReactNode;
+}
+
 export interface AppContainerProps {
     children: React.ReactNode;
 }
@@ -34,7 +42,8 @@ export interface UserButtonProps {
 // they might need another name
 interface LoginPageSession extends Session {
     status: string;
-    id: number
+    id: number;
+    userid: string;
 }
 
 export interface LoginPageProps {
@@ -46,11 +55,30 @@ export interface LoginComponentProps {
     forgotPassword : () => void;
 }
 
+export interface RegisterComponentProps {
+    registerHandler: (registerData: RegisterFormValues) => void;
+}
+
 /** --- OTHER --- **/
 export interface LoginFormValues {
     email: string;
     password: string;
     remember: boolean;
+}
+
+export interface RegisterFormValues {
+    name: string;
+    email: string;
+    password: string;
+    passwordConfirmation: string;
+    accept: boolean;
+}
+
+export interface RegisterHandleData {
+    name: string;
+    email: string;
+    password: string;
+    accept: boolean;
 }
 
 /** --- CALCULATIONS --- **/

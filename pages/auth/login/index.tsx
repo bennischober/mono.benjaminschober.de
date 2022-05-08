@@ -12,13 +12,12 @@ import { getLastRoute } from "../../../utils/appHandles";
 import { ForgotPassword } from "../../../components/ForgotPassword";
 
 export default function LoginPage({ session }: LoginPageProps) {
-    console.log(session);
-
-    // create a custom hook, that does this all automatically?
     const [isPasswordForgotten, setIsPasswordForgotten] = useToggle(false, [
         false,
         true,
     ]);
+
+    // create a custom hook, that does this all automatically?
     const [pageTitle, setPageTitle] = useState("Login");
     useDocumentTitle(pageTitle);
 

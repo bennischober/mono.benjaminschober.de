@@ -1,5 +1,6 @@
-import NextAuth from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import axios from "axios";
 
 export default NextAuth({
 	providers: [
@@ -10,32 +11,44 @@ export default NextAuth({
 				password: { label: "Password", type: "password", placeholder: "password" }
 			},
 			authorize: async (credentials) => {
-				const res = await fetch("http://localhost:3000/api/users", {
-					method: 'POST',
-					body: JSON.stringify(credentials),
-					headers: { "Content-Type": "application/json" }
-				});
+				console.log("authorize", credentials);
 
-				const user = await res.json();
-				console.log("fetch result", res, "user", user);
+				try {
+					const res = await axios({
+						method: "post",
+						url: "http://localhost:3000/api/users/login/login",
+						data: credentials
+					});
+					const user = await res.data;
 
-				// status 200 => user exists
-				if (res.status === 200) {
+					// status 200 => user exists
+					if (res.status === 200) {
+						return {
+							id: user.id,
+							name: user.name,
+							email: user.username,
+							userid: user.userid,
+							status: "authorized"
+						}
+					}
+
 					return {
 						id: user.id,
 						name: user.name,
 						email: user.username,
-						status: "authorized"
-					}
+						userid: user.userid,
+						status: "unauthorized"
+					};
+				} catch (err) {
+					console.log("err", err);
+					return {
+						id: 0,
+						name: "",
+						email: "",
+						userid: "",
+						status: "unauthorized"
+					};
 				}
-
-				// Return null if user data could not be retrieved
-				return {
-					id: user.id,
-					name: user.name,
-					email: user.username,
-					status: "unauthorized"
-				};
 			}
 		})
 	],
@@ -44,6 +57,7 @@ export default NextAuth({
 			if (user) {
 				token.id = user.id;
 				token.status = user.status;
+				token.userid = user.userid;
 			}
 			return token;
 		},
@@ -51,6 +65,7 @@ export default NextAuth({
 			if (token) {
 				session.id = token.id;
 				session.status = token.status;
+				session.userid = token.userid;
 			}
 			return session;
 		},

@@ -1,8 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import { getMongoConnection } from "../../lib/mongodb"
+import type { NextApiRequest, NextApiResponse } from "next";
+import { getMongoConnection } from "../../../../lib/mongodb";
+import bcrypt from "bcryptjs";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 	const reqData = { username: req.body.username, password: req.body.password };
+
+	if (!reqData.username || !reqData.password) {
+		return res.status(400).json({ error: "Username and password are required!" });
+	}
 
 	const con = await getMongoConnection();
 
@@ -15,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		return res.status(404).json(reqData);
 	}
 
-	if (user.password !== reqData.password) {
+	if (!bcrypt.compareSync(reqData.password, user.password)) {
 		return res.status(401).json(reqData);
 	}
 
@@ -23,5 +28,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		id: user._id,
 		name: user.name,
 		username: user.username,
+		userid: user.userid,
 	});
 }
