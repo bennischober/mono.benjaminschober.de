@@ -7,6 +7,7 @@ import {
     MdChecklist,
     MdOutlineChangeCircle,
     MdPictureAsPdf,
+    MdCreateNewFolder,
 } from "react-icons/md";
 import { RiNumbersFill } from "react-icons/ri";
 import { SiPlotly } from "react-icons/si";
@@ -36,6 +37,14 @@ const mockdata = [
             { label: "Any to JSON", link: "/converters/any-to-json" },
             { label: "Any to Any", link: "/converters/any-to-any" },
         ],
+    },
+    {
+        label: "Generators",
+        icon: MdCreateNewFolder,
+        links: [
+            { label: "UUID", link: "/generators/uuid" },
+            { label: "Mock Data", link: "/generators/mock-data" },
+        ]
     },
     {
         label: "PDF Utilities",
