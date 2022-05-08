@@ -24,6 +24,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { FaGithub } from "react-icons/fa";
 import { CompleteHeaderProps } from "../../types/interfaces";
+import metadata from  "../../metadata.json";
 
 const useStyles = createStyles((theme) => ({
     container: {
@@ -87,7 +88,7 @@ export function CompleteHeader({
                     <Group>
                         <Text>Tools Application</Text>
                         <Group position="apart">
-                            <Code sx={{ fontWeight: 700 }}>v0.1.0</Code>
+                            <Code sx={{ fontWeight: 700 }}>v{metadata.buildMajor}.{metadata.buildMinor}.{metadata.buildRevision}-{metadata.buildTag}</Code>
                         </Group>
                     </Group>
 
