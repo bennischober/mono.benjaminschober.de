@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getMongoConnection } from "../../../../lib/mongodb";
 import { v4 as uuidv4 } from 'uuid';
+import dayjs from "dayjs";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const reqData = { name: req.body.name, username: req.body.email, password: req.body.password, userid: uuidv4() };
+    const reqData = { name: req.body.name, username: req.body.email, password: req.body.password, userid: uuidv4(), registerdate: dayjs().format() };
 
     const con = await getMongoConnection();
 
