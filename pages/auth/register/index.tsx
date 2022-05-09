@@ -34,12 +34,6 @@ export default function RegisterPage() {
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 if (err.response?.status === 409) {
-                    // create component for errors on register/login page and display it here
-                    // could use:
-                    // notification system
-                    // https://mantine.dev/others/notifications/
-                    // https://mantine.dev/core/notification/
-                    console.error("The email is already in the db.");
                     cleanNotifications();
                     showNotification({
                         color: "red",
