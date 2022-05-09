@@ -43,3 +43,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - PDF: https://dev.to/handdot/generate-a-pdf-in-js-summary-and-comparison-of-libraries-3k0p
 - DB: https://coderrocketfuel.com/article/store-passwords-in-mongodb-with-node-js-mongoose-and-bcrypt
+
+- could be used for todos: https://www.npmjs.com/package/isomorphic-dompurify
