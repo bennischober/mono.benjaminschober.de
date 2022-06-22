@@ -20,7 +20,7 @@
     "@mantine/prism": "^4.1.5",
     "@mantine/rte": "^4.1.5",
     "@mantine/spotlight": "^4.1.5",
-    "@reduxjs/toolkit": "^1.8.1",
+    "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "cookies": "^0.8.0",
