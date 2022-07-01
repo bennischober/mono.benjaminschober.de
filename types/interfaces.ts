@@ -74,6 +74,12 @@ export interface TodoCardProps {
 }
 
 /** --- OTHER --- **/
+export interface Bar {
+	key: number;
+	height: number;
+	color: string;
+}
+
 export interface LoginFormValues {
 	email: string;
 	password: string;
@@ -126,4 +132,15 @@ export interface ResolutionProps {
 	aspectRight: number;
 	width: number;
 	height: number;
+}
+
+/* SORTING ALGO COMPONENTS */
+interface SortAlgorithmBase {
+	speed: number;
+	setBars: (bars: Bar[]) => void;
+	task: (i: number) => Promise<void>;
+}
+
+export interface MergeSortProps extends SortAlgorithmBase {
+	bars: Bar[];
 }

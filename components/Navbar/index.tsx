@@ -60,7 +60,10 @@ const mockdata = [
     {
         label: "Plotting",
         icon: SiPlotly,
-        link: "/plotting",
+        links: [
+            { label: "Search algorithms", link: "/plotting/search-algorithms" },
+            { label: "Pathfinding algorithms", link: "/plotting/pathfinding-algorithms" },
+        ]
     },
     {
         label: "ToDo",
