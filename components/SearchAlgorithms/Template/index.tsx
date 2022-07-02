@@ -1,47 +1,30 @@
 import { useEffect, useState } from "react";
 import { Button, Group, Paper, Select, useMantineTheme } from "@mantine/core";
-import { Shuffle } from "../../../utils/algorithms";
-import { Bar } from "../../../types/interfaces";
+import {
+    getAlgoData,
+    getAlgoSelect,
+    isSortedASC,
+    Shuffle,
+} from "../../../utils/algorithms";
+import { AlgoData, Bar } from "../../../types/interfaces";
 import { v4 } from "uuid";
 import { MergeSort } from "../MergeSort";
-
-const algos = [
-    {
-        value: "MERGESORT",
-        label: "Merge Sort",
-        timeComplexity: { best: "", average: "", worst: "" },
-    },
-    {
-        value: "INSERTIONSORT",
-        label: "Insertion Sort",
-        timeComplexity: { best: "", average: "", worst: "" },
-    },
-    {
-        value: "QUICKSORT",
-        label: "Quick Sort",
-        timeComplexity: { best: "", average: "", worst: "" },
-    },
-    {
-        value: "BUBBLESORT",
-        label: "Bubble Sort",
-        timeComplexity: { best: "", average: "", worst: "" },
-    },
-];
+import { QuickSort } from "../QuickSort";
 
 export function SearchAlgorithms() {
     const theme = useMantineTheme();
     const [bars, setBars] = useState<Bar[]>();
-    const [speed, setSpeed] = useState(20);
+    const [speed, setSpeed] = useState(5);
     const [algo, setAlgo] = useState<JSX.Element>();
+    const [algoInfo, setAlgoInfo] = useState<AlgoData>();
+    const [selectValue, setSelectValue] = useState<string>("");
 
     useEffect(() => {
         if (typeof window === "undefined") return;
-        console.log("constructed bars");
         createBars();
     }, []);
 
     useEffect(() => {
-        console.log("dosenbier saufen!");
     }, [speed]);
 
     const createBars = () => {
@@ -81,16 +64,9 @@ export function SearchAlgorithms() {
         setBars([...b]);
     };
 
-    const handleAlgoExecute = () => {
-        if (!bars) return;
-        setAlgo(
-            <MergeSort
-                bars={bars}
-                speed={speed}
-                setBars={handleSetBars}
-                task={task}
-            />
-        );
+    const handleDone = (m?: string) => {
+        // const b = bars ? bars.map((val) => val.key) : [];
+        // console.log(m ? m : "done", b, isSortedASC(b));
     };
 
     const sleep = (milliSeconds: number) => {
@@ -101,6 +77,44 @@ export function SearchAlgorithms() {
         await sleep(i);
     };
 
+    const handleSelectValue = (e: string) => {
+        setSelectValue(e);
+        setAlgoInfo(getAlgoData(e));
+    };
+
+    const handleAlgoExecute = () => {
+        if (!bars) return;
+        setAlgoInfo(getAlgoData(selectValue));
+
+        // Note: Disable react strict mode for better debug of search algorithms! => next.config.js! => enable when finished
+        switch (selectValue) {
+            case "MERGESORT":
+                setAlgo(
+                    <MergeSort
+                        bars={bars}
+                        speed={speed}
+                        setBars={handleSetBars}
+                        task={task}
+                        done={handleDone}
+                    />
+                );
+                break;
+            case "QUICKSORT":
+                setAlgo(
+                    <QuickSort
+                        bars={bars}
+                        speed={speed}
+                        setBars={handleSetBars}
+                        task={task}
+                        done={handleDone}
+                    />
+                );
+                break;
+            default:
+                break;
+        }
+    };
+
     return (
         <div>
             <h1>Search Algorithms</h1>
@@ -109,13 +123,24 @@ export function SearchAlgorithms() {
                 <Group align={"flex-end"}>
                     <Select
                         label="Choose a sorting algorithm"
-                        data={algos}
-                    ></Select>
+                        data={getAlgoSelect()}
+                        onChange={(e) => handleSelectValue(e!)}
+                        value={selectValue}
+                    />
                     <Button onClick={() => handleAlgoExecute()}>
                         Execute Sorting
                     </Button>
                 </Group>
             ) : null}
+            <Paper withBorder shadow="md" p={30} mt={30} radius="xs">
+                {algoInfo ? (
+                    <>
+                        <h3>{algoInfo.label}</h3>
+                        <p>{algoInfo.description}</p>
+                        <p>{algoInfo.timeComplexity.average}</p>
+                    </>
+                ) : null}
+            </Paper>
             <Paper withBorder shadow="md" p={30} mt={30} radius="xs">
                 <Group style={{ width: 1500 }} spacing="xs" align={"flex-end"}>
                     {bars?.map((bar) => (
