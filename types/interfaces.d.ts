@@ -135,12 +135,34 @@ export interface ResolutionProps {
 }
 
 /* SORTING ALGO COMPONENTS */
-interface SortAlgorithmBase {
-	speed: number;
-	setBars: (bars: Bar[]) => void;
-	task: (i: number) => Promise<void>;
+export interface AlgoData {
+    value: string;
+    label: string;
+    timeComplexity: {
+        best: string;
+        average: string;
+        worst: string;
+    };
+    spaceComplexity: {
+        best: string;
+        average: string;
+        worst: string;
+    };
+    description: string;
+    sources: string[];
 }
 
-export interface MergeSortProps extends SortAlgorithmBase {
+interface SortAlgorithmBase {
+	speed: number;
 	bars: Bar[];
+	setBars: (bars: Bar[]) => void;
+	task: (i: number) => Promise<void>;
+	done: (m?: string) => void;
 }
+
+export interface MergeSortProps extends SortAlgorithmBase { }
+export interface QuickSortProps extends SortAlgorithmBase { }
+export interface HeapSortProps extends SortAlgorithmBase { }
+export interface BubbleSortProps extends SortAlgorithmBase { }
+export interface SelectionSortProps extends SortAlgorithmBase { }
+export interface InsertionSortProps extends SortAlgorithmBase { }
