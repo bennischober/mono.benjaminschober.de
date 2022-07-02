@@ -100,7 +100,7 @@ export default function RegisterPage() {
                 </div>
                 <Space h="xl" />
                 <Text color="dimmed" size="sm" align="center" mt={5}>
-                    Don't want to register?{" "}
+                    Don`$apos`t want to register?{" "}
                     <Link href="/">
                         <Anchor<"a"> size="sm" href="/">
                             Back to Home

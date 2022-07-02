@@ -118,7 +118,7 @@ export default function LoginPage({ session }: LoginPageProps) {
                 )}
                 <Space h="xl" />
                 <Text color="dimmed" size="sm" align="center" mt={5}>
-                    Don't want to login?{" "}
+                    Don`$apos`t want to login?{" "}
                     <Link href="/">
                         <Anchor<"a"> size="sm" href="/">
                             Back to Home
