@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Bar, MergeSortProps } from "../../../types/interfaces";
 
-export function MergeSort({ bars, speed, setBars, task }: MergeSortProps) {
+export function MergeSort({ bars, speed, setBars, task, done }: MergeSortProps) {
     useEffect(() => {
         mergesort();
     }, []);
@@ -15,6 +15,7 @@ export function MergeSort({ bars, speed, setBars, task }: MergeSortProps) {
         }
         let currentArr = bars;
         await sort(currentArr, 0, currentArr.length - 1);
+        done();
     };
 
     const sort = async (arr: Bar[], l: number, r: number) => {
