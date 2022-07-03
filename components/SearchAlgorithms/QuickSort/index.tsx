@@ -9,7 +9,6 @@ export function QuickSort({
     done,
 }: QuickSortProps) {
     useEffect(() => {
-        if (typeof window === "undefined") return;
         quicksort();
     }, []);
 
@@ -50,7 +49,9 @@ export function QuickSort({
                 await task(speed);
             }
         }
+        await task(speed);
         [A[i + 1], A[r]] = [A[r], A[i + 1]];
+        setBars([...A]);
         return i + 1;
     };
 
