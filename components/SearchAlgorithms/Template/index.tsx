@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+    Accordion,
     Button,
     Group,
     NumberInput,
@@ -176,7 +177,12 @@ export function SearchAlgorithms() {
                         <Button onClick={() => handleAlgoExecute()}>
                             Execute
                         </Button>
-                        <Button onClick={() => handleReShuffle()} loading={isAlgoRunning}>Reset</Button>
+                        <Button
+                            onClick={() => handleReShuffle()}
+                            loading={isAlgoRunning}
+                        >
+                            Reset
+                        </Button>
                     </Group>
                 ) : null}
                 {algoInfo ? (
@@ -184,10 +190,19 @@ export function SearchAlgorithms() {
                         <Space mt={30} />
                         <Text>{algoInfo.description}</Text>
                         <Text>{algoInfo.timeComplexity.average}</Text>
-                        <Title order={4}>Code</Title>
-                        <Prism withLineNumbers language="tsx">
-                            {algoInfo.code}
-                        </Prism>
+                        <Accordion>
+                            <Accordion.Item label="Code">
+                                <Prism.Tabs>
+                                    <Prism.Tab
+                                        label="TypeScript"
+                                        language="typescript"
+                                        withLineNumbers
+                                    >
+                                        {algoInfo.code}
+                                    </Prism.Tab>
+                                </Prism.Tabs>
+                            </Accordion.Item>
+                        </Accordion>
                     </>
                 ) : null}
             </Paper>
