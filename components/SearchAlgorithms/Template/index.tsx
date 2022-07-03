@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
-import { Button, Group, Paper, Select, useMantineTheme } from "@mantine/core";
+import {
+    Button,
+    Code,
+    Group,
+    Paper,
+    Select,
+    Space,
+    Text,
+    Title,
+    useMantineTheme,
+} from "@mantine/core";
 import {
     getAlgoData,
     getAlgoSelect,
@@ -12,6 +22,7 @@ import { MergeSort } from "../MergeSort";
 import { QuickSort } from "../QuickSort";
 import { InsertionSort } from "../InsertionSort";
 import { BubbleSort } from "../BubbleSort";
+import { Prism } from "@mantine/prism";
 
 export function SearchAlgorithms() {
     const theme = useMantineTheme();
@@ -122,7 +133,7 @@ export function SearchAlgorithms() {
                     />
                 );
                 break;
-                case "BUBBLESORT":
+            case "BUBBLESORT":
                 setAlgo(
                     <BubbleSort
                         bars={bars}
@@ -141,26 +152,34 @@ export function SearchAlgorithms() {
     return (
         <div>
             <h1>Search Algorithms</h1>
-            <Button onClick={() => handleReShuffle()}>Reset</Button>
-            {bars ? (
-                <Group align={"flex-end"}>
-                    <Select
-                        label="Choose a sorting algorithm"
-                        data={getAlgoSelect()}
-                        onChange={(e) => handleSelectValue(e!)}
-                        value={selectValue}
-                    />
-                    <Button onClick={() => handleAlgoExecute()}>
-                        Execute Sorting
-                    </Button>
-                </Group>
-            ) : null}
             <Paper withBorder shadow="md" p={30} mt={30} radius="xs">
                 {algoInfo ? (
                     <>
-                        <h3>{algoInfo.label}</h3>
-                        <p>{algoInfo.description}</p>
-                        <p>{algoInfo.timeComplexity.average}</p>
+                        <Title order={3}>{algoInfo.label}</Title>
+                        <Space mt={15} />
+                        {bars ? (
+                            <Group align={"flex-end"}>
+                                <Select
+                                    label="Choose a sorting algorithm"
+                                    data={getAlgoSelect()}
+                                    onChange={(e) => handleSelectValue(e!)}
+                                    value={selectValue}
+                                />
+                                <Button onClick={() => handleAlgoExecute()}>
+                                    Execute Sorting
+                                </Button>
+                                <Button onClick={() => handleReShuffle()}>
+                                    Reset
+                                </Button>
+                            </Group>
+                        ) : null}
+                        <Space mt={30} />
+                        <Text>{algoInfo.description}</Text>
+                        <Text>{algoInfo.timeComplexity.average}</Text>
+                        <Title order={4}>Code</Title>
+                        <Prism withLineNumbers language="tsx">
+                            {algoInfo.code}
+                        </Prism>
                     </>
                 ) : null}
             </Paper>

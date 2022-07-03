@@ -29,6 +29,11 @@ const ALGO_DATA: AlgoData[] = [
         timeComplexity: { best: "", average: "", worst: "" },
         spaceComplexity: { best: "", average: "", worst: "" },
         description: "",
+        code: `import { Button } from '@mantine/core';
+
+        function Demo() {
+          return <Button>Hello</Button>
+        }`,
         sources: []
     },
     {
@@ -37,6 +42,15 @@ const ALGO_DATA: AlgoData[] = [
         timeComplexity: { best: "", average: "", worst: "" },
         spaceComplexity: { best: "", average: "", worst: "" },
         description: "",
+        code: `for(let j = 1; j < A.length; j++) {
+            let key = A[j];
+            let i = j - 1;
+            while(i >= 0 && A[i] && A[i] > key) {
+                A[i + 1] = A[i];
+                i--;
+            }
+            A[i + 1] = key;
+        }`,
         sources: []
     },
     {
@@ -45,6 +59,7 @@ const ALGO_DATA: AlgoData[] = [
         timeComplexity: { best: "", average: "O(n log(n))", worst: "O(n^2)" },
         spaceComplexity: { best: "", average: "", worst: "" },
         description: "",
+        code: "",
         sources: []
     },
     {
@@ -53,6 +68,13 @@ const ALGO_DATA: AlgoData[] = [
         timeComplexity: { best: "", average: "", worst: "" },
         spaceComplexity: { best: "", average: "", worst: "" },
         description: "",
+        code: `for (let i = 0; i < A.length; i++) {
+                for (let j = 0; j < A.length - i - 1; j++) {
+                    if (A[j] > A[j + 1]) {
+                        [A[j], A[j + 1]] = [A[j + 1], A[j]];
+                    }
+                }
+            }`,
         sources: []
     },
 ];

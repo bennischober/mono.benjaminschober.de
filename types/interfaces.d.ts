@@ -149,6 +149,7 @@ export interface AlgoData {
         worst: string;
     };
     description: string;
+	code: string;
     sources: string[];
 }
 
