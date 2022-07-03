@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import {
     Button,
-    Code,
     Group,
+    NumberInput,
     Paper,
     Select,
     Space,
@@ -10,19 +10,19 @@ import {
     Title,
     useMantineTheme,
 } from "@mantine/core";
+import { Prism } from "@mantine/prism";
+import { v4 } from "uuid";
 import {
     getAlgoData,
     getAlgoSelect,
     isSortedASC,
     Shuffle,
 } from "../../../utils/algorithms";
-import { AlgoData, Bar } from "../../../types/interfaces";
-import { v4 } from "uuid";
 import { MergeSort } from "../MergeSort";
 import { QuickSort } from "../QuickSort";
 import { InsertionSort } from "../InsertionSort";
 import { BubbleSort } from "../BubbleSort";
-import { Prism } from "@mantine/prism";
+import { AlgoData, Bar } from "../../../types/interfaces";
 
 export function SearchAlgorithms() {
     const theme = useMantineTheme();
@@ -37,8 +37,6 @@ export function SearchAlgorithms() {
         createBars();
         handleSelectValue(getAlgoSelect()[0].value);
     }, []);
-
-    useEffect(() => {}, [speed]);
 
     const createBars = () => {
         // get colors => 14 colors
@@ -164,8 +162,13 @@ export function SearchAlgorithms() {
                             onChange={(e) => handleSelectValue(e!)}
                             value={selectValue}
                         />
+                        <NumberInput
+                            label="Animation Speed"
+                            value={speed}
+                            onChange={(e) => setSpeed(e!)}
+                        />
                         <Button onClick={() => handleAlgoExecute()}>
-                            Execute Sorting
+                            Execute
                         </Button>
                         <Button onClick={() => handleReShuffle()}>Reset</Button>
                     </Group>
