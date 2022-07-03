@@ -27,7 +27,7 @@ import { Prism } from "@mantine/prism";
 export function SearchAlgorithms() {
     const theme = useMantineTheme();
     const [bars, setBars] = useState<Bar[]>();
-    const [speed, setSpeed] = useState(5);
+    const [speed, setSpeed] = useState(20);
     const [algo, setAlgo] = useState<JSX.Element>();
     const [algoInfo, setAlgoInfo] = useState<AlgoData>();
     const [selectValue, setSelectValue] = useState<string>("");
@@ -35,6 +35,7 @@ export function SearchAlgorithms() {
     useEffect(() => {
         if (typeof window === "undefined") return;
         createBars();
+        handleSelectValue(getAlgoSelect()[0].value);
     }, []);
 
     useEffect(() => {}, [speed]);
@@ -153,26 +154,24 @@ export function SearchAlgorithms() {
         <div>
             <h1>Search Algorithms</h1>
             <Paper withBorder shadow="md" p={30} mt={30} radius="xs">
+                <Title order={3}>{algoInfo ? algoInfo.label : null}</Title>
+                <Space mt={15} />
+                {bars ? (
+                    <Group align={"flex-end"}>
+                        <Select
+                            label="Choose a sorting algorithm"
+                            data={getAlgoSelect()}
+                            onChange={(e) => handleSelectValue(e!)}
+                            value={selectValue}
+                        />
+                        <Button onClick={() => handleAlgoExecute()}>
+                            Execute Sorting
+                        </Button>
+                        <Button onClick={() => handleReShuffle()}>Reset</Button>
+                    </Group>
+                ) : null}
                 {algoInfo ? (
                     <>
-                        <Title order={3}>{algoInfo.label}</Title>
-                        <Space mt={15} />
-                        {bars ? (
-                            <Group align={"flex-end"}>
-                                <Select
-                                    label="Choose a sorting algorithm"
-                                    data={getAlgoSelect()}
-                                    onChange={(e) => handleSelectValue(e!)}
-                                    value={selectValue}
-                                />
-                                <Button onClick={() => handleAlgoExecute()}>
-                                    Execute Sorting
-                                </Button>
-                                <Button onClick={() => handleReShuffle()}>
-                                    Reset
-                                </Button>
-                            </Group>
-                        ) : null}
                         <Space mt={30} />
                         <Text>{algoInfo.description}</Text>
                         <Text>{algoInfo.timeComplexity.average}</Text>
