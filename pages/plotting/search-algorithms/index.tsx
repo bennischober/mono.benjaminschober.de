@@ -1,9 +1,10 @@
+import { PageTemplate } from "../../../components/PageTemplate";
 import { SearchAlgorithms } from "../../../components/SearchAlgorithms/Template";
 
 export default function SearchAlgorithmsPage() {
     return (
-        <div>
+        <PageTemplate title={"Search algorithms"}>
             <SearchAlgorithms />
-        </div>
+        </PageTemplate>
     );
 }
