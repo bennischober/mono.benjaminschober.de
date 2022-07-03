@@ -13,8 +13,14 @@ export function BubbleSort({
             return;
         }
         let currentArr = bars;
+        const start = performance.now();
         await sort(currentArr);
-        done("bubble sort is finished", currentArr);
+        const end = performance.now();
+        done(
+            "bubble sort is finished! Execution time: " +
+                Math.floor((end - start) / 1000) +
+                " seconds"
+        );
     }
 
     const sort = async (A: Bar[]) => {

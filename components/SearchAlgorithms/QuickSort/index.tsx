@@ -20,8 +20,14 @@ export function QuickSort({
 
         let currentArr = bars;
 
+        const start = performance.now();
         await sort(currentArr, 0, currentArr.length - 1);
-        done("Quick sort finished!");
+        const end = performance.now();
+        done(
+            "quick sort is finished! Execution time: " +
+                Math.floor((end - start) / 1000) +
+                " seconds"
+        );
     };
 
     const sort = async (A: Bar[], p: number, r: number) => {

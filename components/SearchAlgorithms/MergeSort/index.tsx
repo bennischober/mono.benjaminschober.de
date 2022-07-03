@@ -14,8 +14,15 @@ export function MergeSort({ bars, speed, setBars, task, done }: MergeSortProps) 
             return;
         }
         let currentArr = bars;
+        
+        const start = performance.now();
         await sort(currentArr, 0, currentArr.length - 1);
-        done();
+        const end = performance.now();
+        done(
+            "merge sort is finished! Execution time: " +
+                Math.floor((end - start) / 1000) +
+                " seconds"
+        );
     };
 
     const sort = async (arr: Bar[], l: number, r: number) => {

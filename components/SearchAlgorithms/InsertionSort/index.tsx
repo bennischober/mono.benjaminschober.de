@@ -13,15 +13,21 @@ export function InsertionSort({
             return;
         }
         let currentArr = bars;
+        const start = performance.now();
         await sort(currentArr);
-        done("insertion sort is finished", currentArr);
-    }
+        const end = performance.now();
+        done(
+            "insertion sort is finished! Execution time: " +
+                Math.floor((end - start) / 1000) +
+                " seconds"
+        );
+    };
 
     const sort = async (A: Bar[]) => {
-        for(let j = 1; j < A.length; j++) {
+        for (let j = 1; j < A.length; j++) {
             let key = A[j];
             let i = j - 1;
-            while(i >= 0 && A[i] && A[i].key > key.key) {
+            while (i >= 0 && A[i] && A[i].key > key.key) {
                 A[i + 1] = A[i];
                 setBars([...A]);
                 await task(speed);
@@ -30,7 +36,7 @@ export function InsertionSort({
             A[i + 1] = key;
             setBars([...A]);
         }
-    }
+    };
 
     insertionsort();
 
