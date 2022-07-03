@@ -157,7 +157,7 @@ interface SortAlgorithmBase {
 	bars: Bar[];
 	setBars: (bars: Bar[]) => void;
 	task: (i: number) => Promise<void>;
-	done: (m?: string) => void;
+	done: (m?: string, o?: any) => void;
 }
 
 export interface MergeSortProps extends SortAlgorithmBase { }

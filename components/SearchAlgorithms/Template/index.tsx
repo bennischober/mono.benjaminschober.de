@@ -10,6 +10,7 @@ import { AlgoData, Bar } from "../../../types/interfaces";
 import { v4 } from "uuid";
 import { MergeSort } from "../MergeSort";
 import { QuickSort } from "../QuickSort";
+import { InsertionSort } from "../InsertionSort";
 
 export function SearchAlgorithms() {
     const theme = useMantineTheme();
@@ -24,8 +25,7 @@ export function SearchAlgorithms() {
         createBars();
     }, []);
 
-    useEffect(() => {
-    }, [speed]);
+    useEffect(() => {}, [speed]);
 
     const createBars = () => {
         // get colors => 14 colors
@@ -64,9 +64,9 @@ export function SearchAlgorithms() {
         setBars([...b]);
     };
 
-    const handleDone = (m?: string) => {
-        // const b = bars ? bars.map((val) => val.key) : [];
-        // console.log(m ? m : "done", b, isSortedASC(b));
+    const handleDone = (m?: string, o?: any) => {
+        const b = bars ? bars.map((val) => val.key) : [];
+        console.log(m ? m : "done", b, isSortedASC(b), o);
     };
 
     const sleep = (milliSeconds: number) => {
@@ -102,6 +102,17 @@ export function SearchAlgorithms() {
             case "QUICKSORT":
                 setAlgo(
                     <QuickSort
+                        bars={bars}
+                        speed={speed}
+                        setBars={handleSetBars}
+                        task={task}
+                        done={handleDone}
+                    />
+                );
+                break;
+            case "INSERTIONSORT":
+                setAlgo(
+                    <InsertionSort
                         bars={bars}
                         speed={speed}
                         setBars={handleSetBars}
