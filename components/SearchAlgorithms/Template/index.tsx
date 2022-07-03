@@ -31,6 +31,7 @@ export function SearchAlgorithms() {
     const [algo, setAlgo] = useState<JSX.Element>();
     const [algoInfo, setAlgoInfo] = useState<AlgoData>();
     const [selectValue, setSelectValue] = useState<string>("");
+    const [isAlgoRunning, setIsAlgoRunning] = useState(false);
 
     useEffect(() => {
         if (typeof window === "undefined") return;
@@ -76,6 +77,9 @@ export function SearchAlgorithms() {
     };
 
     const handleDone = (m?: string, o?: any) => {
+        // enable reset button
+        setIsAlgoRunning(false);
+
         const b = bars ? bars.map((val) => val.key) : [];
         console.log(m ? m : "done", b, isSortedASC(b), o);
     };
@@ -91,11 +95,13 @@ export function SearchAlgorithms() {
     const handleSelectValue = (e: string) => {
         setSelectValue(e);
         setAlgoInfo(getAlgoData(e));
+        // also reset bars?
     };
 
     const handleAlgoExecute = () => {
         if (!bars) return;
         setAlgoInfo(getAlgoData(selectValue));
+        setIsAlgoRunning(true);
 
         // Note: Disable react strict mode for better debug of search algorithms! => next.config.js! => enable when finished
         switch (selectValue) {
@@ -170,7 +176,7 @@ export function SearchAlgorithms() {
                         <Button onClick={() => handleAlgoExecute()}>
                             Execute
                         </Button>
-                        <Button onClick={() => handleReShuffle()}>Reset</Button>
+                        <Button onClick={() => handleReShuffle()} loading={isAlgoRunning}>Reset</Button>
                     </Group>
                 ) : null}
                 {algoInfo ? (
