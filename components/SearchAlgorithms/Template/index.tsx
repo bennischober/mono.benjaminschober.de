@@ -11,6 +11,7 @@ import { v4 } from "uuid";
 import { MergeSort } from "../MergeSort";
 import { QuickSort } from "../QuickSort";
 import { InsertionSort } from "../InsertionSort";
+import { BubbleSort } from "../BubbleSort";
 
 export function SearchAlgorithms() {
     const theme = useMantineTheme();
@@ -113,6 +114,17 @@ export function SearchAlgorithms() {
             case "INSERTIONSORT":
                 setAlgo(
                     <InsertionSort
+                        bars={bars}
+                        speed={speed}
+                        setBars={handleSetBars}
+                        task={task}
+                        done={handleDone}
+                    />
+                );
+                break;
+                case "BUBBLESORT":
+                setAlgo(
+                    <BubbleSort
                         bars={bars}
                         speed={speed}
                         setBars={handleSetBars}
