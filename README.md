@@ -3,6 +3,8 @@
 ## Inspiration
 [Cool Parallaxe Effect](https://gdevelop.io/)
 
+[Inspiration #1](https://brittanychiang.com/)
+
 [Portfolio 1](https://www.lenasteinkuehler.com/) \
 [Portfolio 2](https://www.byxp.co.uk/) \
 [Portfolio 3](https://www.grilledpixels.com/) \
