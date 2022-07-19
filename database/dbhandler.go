@@ -1,4 +1,4 @@
-package main
+package dbhandler
 
 import (
 	"encoding/json"
@@ -10,6 +10,8 @@ import (
 
 	. "api.benjaminschober.de"
 )
+
+// module handling: https://linguinecode.com/post/how-to-import-local-files-packages-in-golang
 
 // handles db connection
 func getById(id string) (Movie, error) {

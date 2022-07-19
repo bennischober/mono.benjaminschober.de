@@ -19,3 +19,6 @@
 
 # Go workspace file
 go.work
+
+# ignore folder created by go code
+tmp/
