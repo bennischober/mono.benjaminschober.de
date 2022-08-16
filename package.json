@@ -24,7 +24,7 @@
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "cookies": "^0.8.0",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.5",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2",
     "next": "12.2.4",
