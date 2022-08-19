@@ -32,7 +32,7 @@
     "next-connect": "^0.13.0",
     "openid-client": "^5.1.8",
     "passport": "^0.6.0",
-    "passport-auth0": "^1.4.2",
+    "passport-auth0": "^1.4.3",
     "passport-google-oauth": "^2.0.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
