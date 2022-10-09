@@ -1,4 +1,4 @@
-# benjaminschober.de Project
+# benjaminschober.de - Portfolio project
 
 ## qwik: Refers to Page with qwik Framework
 
