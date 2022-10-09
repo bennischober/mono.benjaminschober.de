@@ -65,5 +65,9 @@ func main() {
 		createJSON(c)
 	})
 
+	router.GET("/api/v2/all", func(c *gin.Context) {
+		createJSON(c)
+	})
+	
 	router.Run(":8080")
 }
