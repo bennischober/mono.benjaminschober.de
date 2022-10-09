@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { useScrollDirection, useScrolledToTop } from "../../hooks";
-import head from "../../content/layout/head.json";
 
 interface StyledHeaderProps {
     scrollDirection: string | null;
@@ -30,15 +29,6 @@ interface HeaderProps {
 export function Header({ children }: HeaderProps) {
     const scrollDir = useScrollDirection();
     const top = useScrolledToTop();
-
-    console.log(head, head.title);
-
-    const t = fetch("http://localhost:8080/ping").then((res) => {
-        console.log(res);
-        res.json().then((data) => {
-            console.log(data);
-        });
-    });
 
     return (
         <StyledHeader scrollDirection={scrollDir} scrolledToTop={top}>
