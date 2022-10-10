@@ -21,7 +21,7 @@
     "@mantine/rte": "^4.2.12",
     "@mantine/spotlight": "^4.2.12",
     "@reduxjs/toolkit": "^1.8.6",
-    "axios": "^0.27.2",
+    "axios": "^1.1.2",
     "bcryptjs": "^2.4.3",
     "cookies": "^0.8.0",
     "dayjs": "^1.11.5",
