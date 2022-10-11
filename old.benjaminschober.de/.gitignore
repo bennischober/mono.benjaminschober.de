@@ -1,0 +1,18 @@
+# ignore images, videos, photoshop files, pdfs, databases
+*.pdf
+*.sql
+*.sqlite
+*.psd
+*.mp4
+*.jpg
+*.png
+*.txt
+
+# ignore node_modules folders
+node_modules/
+
+# ignore .idea folder
+.idea/
+
+# ignore softwaretechnik-2 folder
+html/softwaretechnik-2/
