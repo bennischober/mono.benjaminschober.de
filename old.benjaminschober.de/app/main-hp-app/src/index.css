@@ -1,0 +1,253 @@
+:root {
+  --color-bg: #ffffff;
+  --main-text-color: #181818;
+
+  --material-icons: rgba(0, 0, 0, 1);
+  --material-icons-inactive: rgba(0, 0, 0, 0.26);
+
+  --second-anim-text: 12ch;
+  --third-anim-text: 15ch;
+}
+
+[data-theme="dark"] {
+  --color-bg: #212121;
+  --main-text-color: #ffffff;
+
+  --material-icons: rgba(255, 255, 255, 1);
+  --material-icons-inactive: rgba(255, 255, 255, 0.3);
+}
+
+[lang="de"] {
+  --second-anim-text: 16ch;
+  --third-anim-text: 16ch;
+}
+
+::selection {
+  background-color: #7F43FF;
+}
+
+@media only screen and (min-width:600px) {
+  :root {
+    --second-anim-text: 12ch;
+    --third-anim-text: 26ch;
+  }
+
+  [lang="de"] {
+    --second-anim-text: 16ch;
+    --third-anim-text: 29ch;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  :root {
+    --second-anim-text: 12ch;
+    --third-anim-text: 41ch;
+  }
+
+  [lang="de"] {
+    --second-anim-text: 16ch;
+    --third-anim-text: 46ch;
+  }
+}
+
+@media only screen and (min-width:1920px) {
+  :root {
+    --second-anim-text: 12ch;
+    --third-anim-text: 41ch;
+  }
+
+  [lang="de"] {
+    --second-anim-text: 16ch;
+    --third-anim-text: 46ch;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  margin: 0;
+  font-size: 1em;
+  font-family: -apple-system, 'Space Mono', 'Roboto', monospace, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  color: var(--main-text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+hr {
+  background-color: var(--main-text-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+#about-section li {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 3em auto;
+}
+
+.video-responsive {
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.video-responsive iframe {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.alice-carousel img {
+  width: 100%;
+}
+.alice-carousel {
+  text-align: start;
+}
+
+/* TYPING ANIMATION */
+.css-typing h1{
+  border-right: 0.15em solid var(--main-text-color);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.css-typing h1:nth-child(1) {
+  width: 3ch;
+  font-weight: bold;
+  -webkit-animation: type 0.5s steps(40, end);
+  animation: type 0.5s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.css-typing h1:nth-child(2) {
+  width: var(--second-anim-text);
+  opacity: 0;
+  font-weight: bold;
+  -webkit-animation: type2 2s steps(40, end);
+  animation: type2 2s steps(40, end);
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.css-typing h1:nth-child(3) {
+  width: var(--third-anim-text);
+  opacity: 0;
+  -webkit-animation: type3 4s steps(82, end),
+  blink 0.5s step-end infinite alternate;
+  animation: type3 4s steps(82, end), blink 0.5s step-end infinite alternate;
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: 0.15em solid white;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: 0.15em solid white;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid white;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: 0.15em solid white;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
