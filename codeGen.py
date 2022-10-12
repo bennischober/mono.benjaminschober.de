@@ -8,7 +8,7 @@ def main():
     '''
     This function handles the command line arguments and calls the appropriate
     functions to generate the code.
-    
+
     This is usually used to create a new project / a new job or education entry.
     '''
     parser = argparse.ArgumentParser()
@@ -16,6 +16,9 @@ def main():
     # add parser argument for names str array
     parser.add_argument(
         "names", help="Names of the files to be generated", type=str, nargs='+')
+
+    parser.add_argument('-json', help="Generate JSON file",
+                        default=False, action='store_true')
 
     args = parser.parse_args()
     generate_files(args)
@@ -27,19 +30,21 @@ def generate_files(args):
     '''
     This function generates the code for the files.
     '''
-    error = None
-
     for name in args.names:
-        try:
-            shutil.copyfile("template.json", os.path.join(
-                args.path, name + ".json"))
-        except Exception as e:
-            error = e
-
-    if error:
-        raise error
+        if args.json:
+            write_file(args, name, '.json')
+        else:
+            write_file(args, name, '.md')
 
     gc.collect()
+
+
+def write_file(args, name, ending):
+    try:
+        shutil.copyfile("template" + ending,
+                        os.path.join(args.path, name + ending))
+    except Exception as e:
+        raise e
 
 
 if __name__ == "__main__":
