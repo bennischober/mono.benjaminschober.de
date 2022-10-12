@@ -20,7 +20,7 @@ export const loader: LoaderFunction = async () => {
 export default function Index() {
     // extend MainProps with the data from the loader
     const data = useLoaderData();
-    if (typeof window !== "undefined") console.log(data);
+    if (typeof document !== "undefined") console.log(data);
 
     // create header links
     const headerLinks = getValuesFromJSON(data.layout.sections);
