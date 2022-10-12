@@ -1,7 +1,5 @@
 import styled from "styled-components";
-
-// only in dev mode
-import links from "../../dev/header.json";
+import { Standard } from "~/types";
 import { getAge, parseJSONString } from "../../utils/helper";
 
 const StyledIntroductionSection = styled.section`
@@ -29,16 +27,15 @@ const StyledAboutTitle = styled.h1`
     font-weight: 400;
 `;
 
-export function IntroductionSection() {
-    const about = links.introduction;
-    const desc = parseJSONString(["$age"], about.description, [
+export function IntroductionSection({ title, name, description }:  Standard.Text.TIntroduction) {
+    const desc = parseJSONString(["$age"], description, [
         getAge().toString(),
     ]);
 
     return (
         <StyledIntroductionSection id="introduction">
-            <StyledAboutTitle>{about.title}</StyledAboutTitle>
-            <h2 className="headline">{about.name}</h2>
+            <StyledAboutTitle>{title}</StyledAboutTitle>
+            <h2 className="headline">{name}</h2>
             <p>{desc}</p>
         </StyledIntroductionSection>
     );

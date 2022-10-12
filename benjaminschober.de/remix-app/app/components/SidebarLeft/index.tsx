@@ -3,9 +3,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
 import { Link } from "../Link";
-
-// only in dev mode
-import links from "../../dev/header.json";
+import { Standard } from "~/types";
 
 const StyledSidebarLeft = styled.div`
     width: 40px;
@@ -48,29 +46,34 @@ const StyledSocialLinks = styled.ul`
     }
 `;
 
-const socialLinks = links.links.map((link, index) => (
-    <li key={link.url}>
-        <Link
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white" }}
-        >
-            <FontAwesomeIcon
-                icon={
-                    link.icon === "faGithub"
-                        ? faGithub
-                        : link.icon === "faLinkedin"
-                        ? faLinkedin
-                        : faEnvelope
-                }
-                size={"lg"}
-            />
-        </Link>
-    </li>
-));
+interface LeftSidebarProps {
+    links: Standard.Layout.TSidebarLink[];
+}
 
-export function LeftSidebar() {
+export function LeftSidebar({links}: LeftSidebarProps) {
+    const socialLinks = links.map((link, index) => (
+        <li key={link.url}>
+            <Link
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "white" }}
+            >
+                <FontAwesomeIcon
+                    icon={
+                        link.icon === "faGithub"
+                            ? faGithub
+                            : link.icon === "faLinkedin"
+                            ? faLinkedin
+                            : faEnvelope
+                    }
+                    size={"lg"}
+                />
+            </Link>
+        </li>
+    ));
+
+
     return (
         <>
             <StyledSidebarLeft>

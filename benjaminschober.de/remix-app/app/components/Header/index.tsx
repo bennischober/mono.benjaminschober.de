@@ -1,10 +1,8 @@
 import styled, { css } from "styled-components";
+import { Standard } from "~/types";
 import { useScrollDirection, useScrolledToTop } from "../../hooks";
 import { Link } from "../Link";
 import { Logo } from "../Logo";
-
-// only in dev mode
-import links from "../../dev/header.json";
 
 interface StyledHeaderProps {
     scrollDirection: string | null;
@@ -46,15 +44,15 @@ const StyledLinks = styled.ol`
 `;
 
 // will be needed later
-// interface HeaderProps {
-//     children: React.ReactNode;
-// }
+interface HeaderProps {
+    links: Standard.Layout.THeaderLink[];
+}
 
-export function Header() {
+export function Header({ links }: HeaderProps) {
     const scrollDir = useScrollDirection();
     const top = useScrolledToTop();
 
-    const headerLinks = links.header.map((link, index) => (
+    const headerLinks = links.map((link, index) => (
         <li key={link.anchor} tabIndex={0}>
             <Link
                 key={link.anchor}

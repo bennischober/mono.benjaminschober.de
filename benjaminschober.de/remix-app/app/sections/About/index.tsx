@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// only in dev mode
-import links from "../../dev/header.json";
-
 const StyledAboutSection = styled.section`
     max-width: 900px;
 `;
@@ -18,15 +15,29 @@ const StyledMePicture = styled.picture`
     }
 `;
 
-export function AboutSection() {
+interface AboutSectionProps {
+    anchor: string;
+    title: string;
+    description: string;
+    picture?: string;
+}
+
+export function AboutSection({
+    anchor,
+    title,
+    description,
+    picture,
+}: AboutSectionProps) {
+    // Note: description is already sanitized in 'backend' (see 'parseMarkdown' in 'utils/parser.ts')
+
     return (
-        <StyledAboutSection>
-            <h2 className="section-headline">{links.about.title}</h2>
+        <StyledAboutSection id={anchor}>
+            <h2 className="section-headline">{title}</h2>
             <div className="section-content">
-                <div>{links.about.description}</div>
+                <div dangerouslySetInnerHTML={{ __html: description }} />
                 <div>
                     <StyledMePicture>
-                        <img src="/me.jpg" alt="me" />
+                        <img src={picture ?? "/me.jpg"} alt="me" />
                     </StyledMePicture>
                 </div>
             </div>
