@@ -29,3 +29,17 @@ export function hexToRGBA(hex: string, alpha: number) {
 
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
+
+// function that goes through all keys in JSON and returns the values as an array
+export function getValuesFromJSON(json: any) {
+    const values = [];
+
+    for (const key in json) {
+        if (json.hasOwnProperty(key)) {
+            values.push(json[key]);
+        }
+    }
+
+    return values;
+}
+
