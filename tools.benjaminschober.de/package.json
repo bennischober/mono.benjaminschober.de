@@ -28,7 +28,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.6.5",
     "next": "12.3.1",
-    "next-auth": "^4.13.0",
+    "next-auth": "^4.20.1",
     "next-connect": "^0.13.0",
     "openid-client": "^5.1.10",
     "passport": "^0.6.0",
